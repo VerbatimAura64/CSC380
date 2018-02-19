@@ -7,3 +7,4 @@ git push -u origin master //master is the branch you are committing to, so repla
                           //with whichever branch you are commiting to
 git pull //If you can't push a file(s), do this command first and your local repo will be up 
          //to date again allowing you to push
+and then Voila
