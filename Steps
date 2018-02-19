@@ -1,0 +1,9 @@
+Create Local repository
+Create new file in said repository
+git add <File Name> 
+git commit -m "You need to type a message here" //This commits the file to the local repository
+git remote add origin https://github.com/<Your Username>/<Repository Name>.git
+git push -u origin master //master is the branch you are committing to, so replace that 
+                          //with whichever branch you are commiting to
+git pull //If you can't push a file(s), do this command first and your local repo will be up 
+         //to date again allowing you to push
