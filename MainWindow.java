@@ -1,4 +1,4 @@
-ackage movieprogram;
+package movieprogram;
 
 /**
  *
