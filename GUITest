@@ -1,0 +1,111 @@
+/*
+ * GUI 5 is like GUI 4 except that the central region is replaced by
+ * a panel which reflects the color of the most recently selected button.
+ * This last bit -- the fact that the panel reflects the color, is something
+ * of a big deal. The GUI responds!
+ *
+ * Events are featured in this program! What is an event? How are events
+ * communicated from a component to an event handling object? Answers to
+ * these and other questions can be found in the given code!
+ */
+package GUI;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+//import javax.swing.SwingConstants;
+
+/**
+ *
+ * @author walonzo
+ */
+public class GUI5 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new ThreadForGUI());
+    }
+
+    private static class ThreadForGUI implements Runnable {
+
+        public ThreadForGUI() {
+        }
+
+        @Override
+        public void run() {
+            GUI5 gui = new GUI5();
+        }
+
+    }
+
+    public GUI5() {
+        KFrame frame = new KFrame("GUI 5");
+    }
+
+    //modeling the featured frame of the GUI
+    
+    public class KFrame extends JFrame implements ActionListener {
+        
+        private JButton blueButton;
+        private JButton redButton;
+        private JButton greenButton;
+        private JButton yellowButton;
+        private JPanel reflector;
+        
+
+        public KFrame(String title) {
+            super(title);
+            setSize(500, 300);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            addComponents(getContentPane());
+            addListeners();
+            setVisible(true);
+        }
+        
+        private void addComponents(Container contentPane) {
+            blueButton = new JButton("Blue");
+            redButton = new JButton("Red");
+            greenButton = new JButton("Green");
+            yellowButton = new JButton("Yellow");
+            reflector = new JPanel();
+            contentPane.setLayout(new BorderLayout());
+            contentPane.add(blueButton, BorderLayout.NORTH);
+            contentPane.add(redButton, BorderLayout.SOUTH);
+            contentPane.add(greenButton, BorderLayout.EAST);
+            contentPane.add(yellowButton, BorderLayout.WEST);
+            contentPane.add(reflector, BorderLayout.CENTER);
+            
+        }
+        
+        //Add the listeners to the frame.
+        private void addListeners() {
+            blueButton.addActionListener(this);
+            redButton.addActionListener(this);
+            greenButton.addActionListener(this);
+            yellowButton.addActionListener(this);
+        }
+        
+        //This method serves to implement the ActionListener inteface
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            String command = event.getActionCommand();
+            if (command.equals("Red")) {
+                redButton.setBackground(Color.RED);
+            } else if (command.equals("Yellow")) {
+                yellowButton.setBackground(Color.YELLOW);
+            } else if (command.equals("Blue")) {
+                blueButton.setBackground(Color.BLUE);
+            } else if (command.equals("Green")){
+                greenButton.setBackground(Color.GREEN);
+            }
+        }
+    }
+}
