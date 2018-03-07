@@ -9,6 +9,7 @@ import javax.swing.*;
  *
  * @author Verbatim
  */
+
 public class SeatReservation  {
 
     /**
@@ -38,6 +39,7 @@ public class SeatReservation  {
     
     private class KFrame extends JFrame implements ActionListener{
         
+        private int seatCount = 0;
         private JButton seat;
         private JButton seat1;
         private JButton seat2;
@@ -84,6 +86,15 @@ public class SeatReservation  {
             contentPane.add(seat6);
             contentPane.add(seat7);
             contentPane.add(seat8);
+            seat.setBackground(Color.BLUE);
+            seat1.setBackground(Color.BLUE);
+            seat2.setBackground(Color.BLUE);
+            seat3.setBackground(Color.BLUE);
+            seat4.setBackground(Color.BLUE);
+            seat5.setBackground(Color.BLUE);
+            seat6.setBackground(Color.BLUE);
+            seat7.setBackground(Color.BLUE);
+            seat8.setBackground(Color.BLUE);
         }
         
         private void addListeners() {
@@ -100,92 +111,173 @@ public class SeatReservation  {
         
         @Override
         public void actionPerformed(ActionEvent event) {
+            //Changed the command for seat reservation. Set a variable for seat count that
+            //will count how many seats chosen. Will not let users select more than 4 seats.
+            //Later will change to how many tickets selected.
             String command = event.getActionCommand();
             if (command.equals("")) {
-                seat.setBackground(Color.ORANGE);
-                /*seat1.setBackground(null);
-                seat2.setBackground(null);
-                seat3.setBackground(null);
-                seat4.setBackground(null);
-                seat5.setBackground(null);
-                seat6.setBackground(null);
-                seat7.setBackground(null);
-                seat8.setBackground(null);*/
+                if (seat.getBackground() == Color.ORANGE)
+                {
+                    seat.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                
             } else if (command.equals(" ")) {
-                seat1.setBackground(Color.ORANGE);
-                //seat.setBackground(null);
-                seat2.setBackground(null);
-                seat3.setBackground(null);
-                seat4.setBackground(null);
-                seat5.setBackground(null);
-                seat6.setBackground(null);
-                seat7.setBackground(null);
-                seat8.setBackground(null);
+                if (seat1.getBackground() == Color.ORANGE)
+                {
+                    seat1.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat1.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat1.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             } else if (command.equals("  ")) {
-                seat2.setBackground(Color.ORANGE);
-                seat1.setBackground(null);
-                //seat.setBackground(null);
-                seat3.setBackground(null);
-                seat4.setBackground(null);
-                seat5.setBackground(null);
-                seat6.setBackground(null);
-                seat7.setBackground(null);
-                 seat8.setBackground(null);
+                if (seat2.getBackground() == Color.ORANGE)
+                {
+                    seat2.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat2.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat2.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             } else if (command.equals("   ")) {
-                seat3.setBackground(Color.ORANGE);
-                seat1.setBackground(null);
-                seat2.setBackground(null);
-                //seat.setBackground(null);
-                seat4.setBackground(null);
-                seat5.setBackground(null);
-                seat6.setBackground(null);
-                seat7.setBackground(null);
+                if (seat3.getBackground() == Color.ORANGE)
+                {
+                    seat3.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat3.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat3.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             } else if (command.equals("    ")) {
-                seat4.setBackground(Color.ORANGE);
-                seat1.setBackground(null);
-                seat2.setBackground(null);
-                seat3.setBackground(null);
-               // seat.setBackground(null);
-                seat5.setBackground(null);
-                seat6.setBackground(null);
-                seat7.setBackground(null);
+                if (seat4.getBackground() == Color.ORANGE)
+                {
+                    seat4.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat4.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat4.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             } else if (command.equals("     ")) {
-                seat5.setBackground(Color.ORANGE);
-                seat1.setBackground(null);
-                seat2.setBackground(null);
-                seat3.setBackground(null);
-                seat4.setBackground(null);
-                //seat.setBackground(null);
-                seat6.setBackground(null);
-                seat7.setBackground(null);
+                if (seat5.getBackground() == Color.ORANGE)
+                {
+                    seat5.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat5.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat5.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             } else if (command.equals("      ")) {
-                seat6.setBackground(Color.ORANGE);
-                seat1.setBackground(null);
-                seat2.setBackground(null);
-                seat3.setBackground(null);
-                seat4.setBackground(null);
-                seat5.setBackground(null);
-                //seat.setBackground(null);
-                seat7.setBackground(null);
+               if (seat6.getBackground() == Color.ORANGE)
+                {
+                    seat6.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat6.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat6.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             } else if (command.equals("       ")) {
-                seat7.setBackground(Color.ORANGE);
-                seat1.setBackground(null);
-                seat2.setBackground(null);
-                seat3.setBackground(null);
-                seat4.setBackground(null);
-                seat5.setBackground(null);
-                seat6.setBackground(null);
-              //  seat.setBackground(null);
+                if (seat7.getBackground() == Color.ORANGE)
+                {
+                    seat7.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat7.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat7.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             } else if (command.equals("        ")) {
-                seat8.setBackground(Color.ORANGE);
-                seat1.setBackground(null);
-                seat2.setBackground(null);
-                seat3.setBackground(null);
-                seat4.setBackground(null);
-                seat5.setBackground(null);
-                seat6.setBackground(null);
-                seat7.setBackground(null);
-               // seat.setBackground(null);
+                if (seat8.getBackground() == Color.ORANGE)
+                {
+                    seat8.setBackground(Color.BLUE);
+                    seatCount--;
+                }
+                else if (seat8.getBackground() == Color.BLUE)
+                {
+                    if (seatCount < 4)
+                    {
+                    seat8.setBackground(Color.ORANGE);
+                    seatCount++;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             }
         }
     }
