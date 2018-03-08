@@ -60,6 +60,7 @@ public class SignUpForm implements ActionListener {
         window.add(displayError);
         window.add(confirmButton);
         window.add(cancelButton);
+        displayError.setEditable(false);
 
         // add tooltips
         nameLabel.setToolTipText("Enter Your First and Last Name");
@@ -100,11 +101,25 @@ public class SignUpForm implements ActionListener {
                 verifiedPassword = verifyPasswordTextField.getText();
                 password = passwordTextField.getText();
                 name = nameTextField.getText();
-                if (name.isEmpty()  || email.isEmpty() || verifiedEmail.isEmpty() || password.isEmpty() || verifiedPassword.isEmpty() ){
-                    displayError.setText("Required Fields Missing");
-                }
-
-                else if (verifiedEmail.equals(email) && verifiedPassword.equals(password)) {
+                
+                if (name.isEmpty() || email.isEmpty() || verifiedEmail.isEmpty() || password.isEmpty() || verifiedPassword.isEmpty()) {
+                    if (name.isEmpty()) {
+                        nameTextField.requestFocusInWindow();
+                        displayError.setText("Please enter a name");
+                    } else if (email.isEmpty()) {
+                        emailTextField.requestFocusInWindow();
+                        displayError.setText("Please enter email");
+                    } else if (verifiedEmail.isEmpty()) {
+                        verifyEmailTextField.requestFocusInWindow();
+                        displayError.setText("Please confirm email");
+                    } else if (password.isEmpty()) {
+                        passwordTextField.requestFocusInWindow();
+                        displayError.setText("Please enter password");
+                    } else if (verifiedPassword.isEmpty()) {
+                        verifyPasswordTextField.requestFocusInWindow();
+                        displayError.setText("Please verify password");
+                    }
+                } else if (verifiedEmail.equals(email) && verifiedPassword.equals(password)) {
                     FileWriter fw = new FileWriter("customer.txt", true);
                     fw.write("Customer ID:\t" + getAccountID() + "\t");
                     fw.write("Name:\t" + nameTextField.getText() + "\t");
@@ -116,12 +131,19 @@ public class SignUpForm implements ActionListener {
 
                     fw.close();
                     System.out.println("File Updated");
-                    
 
                     // This is Where we Should link to Payment Info
                     // such as Credit card or in store purchase
                 } else {
-                    displayError.setText("Email or Passwords Do Not Match. Please Try Again.");
+                    if (!email.equals(verifiedEmail)) {
+                        verifyEmailTextField.requestFocusInWindow();
+                        verifyEmailTextField.selectAll();
+                        displayError.setText("Emails don't match");
+                    } else if (password.equals(verifiedPassword)) {
+                        verifyPasswordTextField.requestFocusInWindow();
+                        verifyPasswordTextField.selectAll();
+                        displayError.setText("Passwords don't match");
+                    }
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e + "");
