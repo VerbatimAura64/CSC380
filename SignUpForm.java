@@ -101,7 +101,7 @@ public class SignUpForm implements ActionListener {
                 verifiedPassword = verifyPasswordTextField.getText();
                 password = passwordTextField.getText();
                 name = nameTextField.getText();
-                
+
                 if (name.isEmpty() || email.isEmpty() || verifiedEmail.isEmpty() || password.isEmpty() || verifiedPassword.isEmpty()) {
                     if (name.isEmpty()) {
                         nameTextField.requestFocusInWindow();
@@ -112,6 +112,10 @@ public class SignUpForm implements ActionListener {
                     } else if (verifiedEmail.isEmpty()) {
                         verifyEmailTextField.requestFocusInWindow();
                         displayError.setText("Please confirm email");
+                    } else if (!email.equals(verifiedEmail)) {
+                        verifyEmailTextField.requestFocusInWindow();
+                        verifyEmailTextField.selectAll();
+                        displayError.setText("Emails don't match");
                     } else if (password.isEmpty()) {
                         passwordTextField.requestFocusInWindow();
                         displayError.setText("Please enter password");
@@ -139,7 +143,7 @@ public class SignUpForm implements ActionListener {
                         verifyEmailTextField.requestFocusInWindow();
                         verifyEmailTextField.selectAll();
                         displayError.setText("Emails don't match");
-                    } else if (password.equals(verifiedPassword)) {
+                    } else if (!password.equals(verifiedPassword)) {
                         verifyPasswordTextField.requestFocusInWindow();
                         verifyPasswordTextField.selectAll();
                         displayError.setText("Passwords don't match");
