@@ -127,41 +127,45 @@ public class Login implements ActionListener {
                         email = sc.next().trim();
                         password = sc.next().trim();
                         
-
+                      
                         if (tempEmail.equals(email) && tempPassword.equals(password)) {
                             found = true;
                             blank3.setText("Success");
                             blank7.setText("Success");
                             found = true;
                             Payment_Information pi = new Payment_Information();
-                            System.out.println("Bitch you in after 7 hours");
+                            System.out.println("Login Success");
+                            blank3.setText(null);
+                            blank7.setText(null);
+                            window.setVisible(false);
+                            window.dispose();
                             
 
                         }
                         if (tempEmail.equals(email)) {
-                            blank4.setText("Success");
+                            blank3.setText("Success");
                         } else {
-                            blank4.setText("Incorrect");
+                            blank3.setText("Incorrect");
 
                         } if (tempPassword.equals(password)) {
                             blank7.setText("Success");
                                 } else{
                             blank7.setText("Incorrect");
                         }
+                        if (tempEmail.isEmpty()){
+                            blank7.setText("Enter a Password");
+                        }
+                        if (tempPassword.isEmpty()){
+                            blank3.setText("Enter an Email");
+                        }
                     }
 
                 } catch (Exception e) {
 
                 }
-                //verifyLogin();
 
-//                emailTextField.setText(null);
-//                passwordTextField.setText(null);
-//                window.setVisible(false);
-//                //maybe ?
-//                window.dispose();
-                System.out.println("Logging in");
-//                Payment_Information pi = new Payment_Information();
+                System.out.println("Login Attempt");
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e + "");
 
@@ -173,6 +177,8 @@ public class Login implements ActionListener {
             try {
                 emailTextField.setText(null);
                 passwordTextField.setText(null);
+                blank3.setText(null);
+                blank7.setText(null);
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e + "");
@@ -185,6 +191,7 @@ public class Login implements ActionListener {
                 emailTextField.setText(null);
                 passwordTextField.setText(null);
                 window.setVisible(false);
+                window.dispose();
                 SignUpForm suf = new SignUpForm();
 
             } catch (Exception e) {
@@ -197,7 +204,10 @@ public class Login implements ActionListener {
             try {
                 emailTextField.setText(null);
                 passwordTextField.setText(null);
+                blank3.setText(null);
+                blank7.setText(null);
                 window.setVisible(false);
+                window.dispose();
                 Payment_Information pi = new Payment_Information();
 
             } catch (Exception e) {
