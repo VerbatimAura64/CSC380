@@ -1,7 +1,6 @@
-package com.cscse;
-
 //this file goes in this directory to test "\\src\\test\\java\\com\\cscse\\AppTest.java"
 //then on command line go to the top maven project folder, whatever you called it, and type mvn clean test
+package com.cscse;
 
 import java.awt.AWTException;
 import java.awt.Rectangle;
@@ -53,8 +52,12 @@ public class AppTest
         bot.delay(2000);
         bot.mousePress(InputEvent.BUTTON1_MASK);
         bot.mouseRelease(InputEvent.BUTTON1_MASK);
+        
         SignUp suf = new SignUp();
+        suf.window.setVisible(false);
         bot.delay(3000);
+        
+        suf.window.setVisible(true);
         suf.nameTextField.setText("Alex Pantaleev");
         suf.ageTextField.setText("34");
         suf.emailTextField.setText("alex@cs.oswego.edu");
