@@ -1,5 +1,3 @@
-//this file goes in this directory to test "\\src\\test\\java\\com\\cscse\\AppTest.java"
-//then on command line go to the top maven project folder, whatever you called it, and type mvn clean test
 package com.cscse;
 
 import java.awt.AWTException;
@@ -46,34 +44,73 @@ public class AppTest
      */
     public void testApp() throws AWTException, IOException
     {
-        Main.Launch();
         Robot bot = new Robot();
-        bot.mouseMove(256,294);
+        SignUp suf = new SignUp();
+        bot.delay(3000);
+        suf.window.setVisible(true);
+        bot.delay(1000);
+        suf.nameTextField.setText("Alex Pantaleev");
+        bot.delay(1000);
+        suf.ageTextField.setText("31");
+        bot.delay(1000);
+        suf.emailTextField.setText("alex@cs.oswego.edu");
+        bot.delay(1000);
+        suf.verifyEmailTextField.setText("alex@cs.oswego.edu");
+        bot.delay(1000);
+        suf.passwordTextField.setText("YouPassTheClass");
+        bot.delay(1000);
+        suf.verifyPasswordTextField.setText("YouPassTheClass");
+        bot.delay(2000);
+        bot.mouseMove(186, 227);
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        bot.delay(2000);
+        bot.mouseMove(800, 20);
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        bot.delay(2000);
+    }
+    
+    public void testApp1() throws AWTException, IOException
+    {
+        SignUp suf = new SignUp();
+        Robot bot = new Robot();
+        suf.window.setVisible(true);
+        bot.delay(1000);
+        suf.nameTextField.setText("Alex Pantaleev");
+        bot.delay(1000);
+        suf.ageTextField.setText("31");
+        bot.delay(1000);
+        suf.emailTextField.setText("alex@cs.oswego.edu");
+        bot.delay(1000);
+        suf.verifyEmailTextField.setText("walonzo@oswego.edu");
+        bot.delay(1000);
+        suf.passwordTextField.setText("YouPassTheClass");
+        bot.delay(1000);
+        suf.verifyPasswordTextField.setText("YouPassTheClass");
+        bot.delay(2000);
+        bot.mouseMove(186, 227);
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        //assert (SignUp.FileUpdated());
+        bot.delay(2000);
+        suf.window.setVisible(false);
+        bot.delay(2000);
+    }
+    
+    public void testApp2() throws AWTException, IOException
+    {
+        MainWindow mw = new MainWindow();
+        Robot bot = new Robot();
+        mw.setVisible(true);
+        bot.delay(5000);
+        mw.setVisible(true);
+        bot.mouseMove(145,294);
         bot.delay(2000);
         bot.mousePress(InputEvent.BUTTON1_MASK);
         bot.mouseRelease(InputEvent.BUTTON1_MASK);
-        
-        SignUp suf = new SignUp();
-        suf.window.setVisible(false);
-        bot.delay(3000);
-        
-        suf.window.setVisible(true);
-        suf.nameTextField.setText("Alex Pantaleev");
-        suf.ageTextField.setText("34");
-        suf.emailTextField.setText("alex@cs.oswego.edu");
-        suf.verifyEmailTextField.setText("alex@cs.oswego.edu");
-        suf.passwordTextField.setText("YouPass");
-        suf.verifyPasswordTextField.setText("YouPass");
+        mw.setVisible(false);
         bot.delay(2000);
-        bot.mouseMove(152, 227);
-        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        bot.delay(2000);
-        bot.mouseMove(100, 200);
-        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        bot.delay(5000);
-        
         
     }
 }
