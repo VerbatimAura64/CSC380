@@ -14,12 +14,12 @@ import javax.swing.JRadioButton;
  *
  * @author PwnimuS
  */
-public class JohnWickMovie extends javax.swing.JFrame {
+public class Dunkirk extends javax.swing.JFrame {
 
     /**
      * Creates new form JohnWickMovie
      */
-    public JohnWickMovie() {
+    public Dunkirk() {
         initComponents();
     }
 
@@ -37,7 +37,7 @@ public class JohnWickMovie extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jMenuItem1 = new javax.swing.JMenuItem();
         buttonGroup1 = new javax.swing.ButtonGroup();
-        wickImageLarge = new javax.swing.JLabel();
+        dunkirkImageLarge = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
@@ -58,21 +58,23 @@ public class JohnWickMovie extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        wickImageLarge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/csc380ui/images/johnwicklarge.jpg"))); // NOI18N
-        wickImageLarge.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 1, 4, 1, new java.awt.Color(0, 0, 0)));
-        wickImageLarge.setComponentPopupMenu(popup);
-        wickImageLarge.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        wickImageLarge.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        wickImageLarge.addMouseListener(new java.awt.event.MouseAdapter() {
+        dunkirkImageLarge.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dunkirkImageLarge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/csc380ui/images/dunkirkLarge.jpg"))); // NOI18N
+        dunkirkImageLarge.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 1, 4, 1, new java.awt.Color(0, 0, 0)));
+        dunkirkImageLarge.setComponentPopupMenu(popup);
+        dunkirkImageLarge.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        dunkirkImageLarge.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        dunkirkImageLarge.setMaximumSize(new java.awt.Dimension(447, 258));
+        dunkirkImageLarge.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                wickImageLargeMouseClicked(evt);
+                dunkirkImageLargeMouseClicked(evt);
             }
         });
 
         jTextArea2.setColumns(20);
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
-        jTextArea2.setText("\n\n\n\n\n\n\nThis is the description for John Wick\n");
+        jTextArea2.setText("This is the description for Dunkirk\n");
         jTextArea2.setBorder(null);
         jTextArea2.setOpaque(false);
         jScrollPane2.setViewportView(jTextArea2);
@@ -80,7 +82,7 @@ public class JohnWickMovie extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("John Wick - 2:45 - 3:45 Theater 1");
+        jRadioButton1.setText("Dunkirk 4:45 - 7:15 pm");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -88,7 +90,7 @@ public class JohnWickMovie extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("John Wick 5:00 - 7:25 Theater 2");
+        jRadioButton2.setText("Dunkirk 5:15 - 8:00pm Theater 2");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
@@ -113,7 +115,7 @@ public class JohnWickMovie extends javax.swing.JFrame {
                 .addComponent(jRadioButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton2)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jButton1.setText("Home");
@@ -138,10 +140,11 @@ public class JohnWickMovie extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(wickImageLarge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dunkirkImageLarge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(265, 265, 265))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -152,9 +155,9 @@ public class JohnWickMovie extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(wickImageLarge)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(dunkirkImageLarge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
@@ -166,14 +169,14 @@ public class JohnWickMovie extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void wickImageLargeMouseClicked(java.awt.event.MouseEvent evt) {                                            
+    private void dunkirkImageLargeMouseClicked(java.awt.event.MouseEvent evt) {                                               
        final JMenuItem sayHello = new JMenuItem("Hello");
         JPopupMenu MainPopup = new JPopupMenu();
         MainPopup.add(sayHello);
 
         MainPopup.setVisible(true);
         
-    }                                           
+    }                                              
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                              
      
@@ -181,7 +184,7 @@ public class JohnWickMovie extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
      this.setVisible(false);
-     new MainUI1().setVisible(true);
+     new MainWindow().setVisible(true);
        
        
     }                                        
@@ -215,26 +218,28 @@ public class JohnWickMovie extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JohnWickMovie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dunkirk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JohnWickMovie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dunkirk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JohnWickMovie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dunkirk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JohnWickMovie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dunkirk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JohnWickMovie().setVisible(true);
+                new Dunkirk().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify                     
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel dunkirkImageLarge;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenuItem jMenuItem1;
@@ -246,6 +251,5 @@ public class JohnWickMovie extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JPopupMenu popup;
-    private javax.swing.JLabel wickImageLarge;
     // End of variables declaration                   
 }

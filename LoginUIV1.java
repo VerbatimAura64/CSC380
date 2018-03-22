@@ -4,12 +4,12 @@ package movieprogram;
  *
  * @author bwilli21
  */
-public class MovieJFrame extends javax.swing.JFrame {
+public class LoginUIV1 extends javax.swing.JFrame {
 
     /**
      * Creates new form MovieJFrame
      */
-    public MovieJFrame() {
+    public LoginUIV1() {
         initComponents();
     }
 

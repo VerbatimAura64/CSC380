@@ -12,8 +12,11 @@ import javax.swing.JPanel;
 /**
  *
  * @author Main
+ * 
+ * PEBKAC
+ * 
  */
-public class Main {
+public class MainLaunch {
 
     /**
      * @param args the command line arguments
