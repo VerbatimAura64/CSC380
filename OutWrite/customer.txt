@@ -1,0 +1,6 @@
+Customer ID:0	Age:	1000	Name:	Admin Admin	Email Address:	admin@zeemovies.com	Password:	Adminadmin	
+Customer ID:1	Age:	1001	Name:	Guest Guest	Email Address:	guest@zeemovies.com	Password:	Guestguest	
+Customer ID:100	Age:	24	Name:	Brian Antalek	Email Address:	bantalek@gmail.com	Password:	google	
+Customer ID:180	Age:	27	Name:	Robert Kilmer	Email Address:	robk@gmail.com          Password:	picklerick	
+Customer ID:115	Age:	32	Name:	Ben Affleck	Email Address:	ben@gmail.com           Password:	batman	
+Customer ID:764	Age:	42	Name:	Giovanni Rocket	Email Address:	rocketman@gmail.com	Password:	teamrocket	

@@ -30,7 +30,7 @@ public class LoginUIV1 extends javax.swing.JFrame {
         login_id = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
         jRadioButton1 = new javax.swing.JRadioButton();
-
+//dick
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -55,7 +55,7 @@ public class LoginUIV1 extends javax.swing.JFrame {
             }
         });
 
-        resetButton.setText("Reset");
+        resetButton.setText("Create Account");
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetButtonActionPerformed(evt);
