@@ -1,8 +1,0 @@
-admin@zeemovies.com:Adminadmin:
-guest@zeemovies.com:Guestguest:
-bantalek@gmail.com:google:
-robk@gmail.com:picklerick:
-ben@gmail.com:batman:
-rocketman@gmail.com:teamrocket:
-a@b.c:asdf:
-a:a:
