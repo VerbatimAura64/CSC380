@@ -1,5 +1,9 @@
-package outwrite;
+package com.MTProgram;
 
+/**
+ * 
+ *
+ */
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -7,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
 import javax.swing.JButton;
@@ -58,7 +63,7 @@ public class Login implements ActionListener {
 
         //set GridLayout
         GridLayout gl = new GridLayout();
-        gl.setColumns(5);
+        gl.setColumns(6);
         gl.setRows(7);
         window.setLayout(gl);
 
@@ -101,6 +106,7 @@ public class Login implements ActionListener {
         window.setSize(400, 250);
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLocationRelativeTo(null);
         window.setVisible(true);
 
     }
@@ -111,8 +117,8 @@ public class Login implements ActionListener {
         if (ae.getActionCommand() == loginButton.getActionCommand()) {
 
             try {
-                    // create variables
-                    // initialize variables
+                // create variables
+                // initialize variables
                 boolean found = false;
 
                 try {
@@ -126,20 +132,22 @@ public class Login implements ActionListener {
                     while (sc.hasNext() && !found) {
                         email = sc.next().trim();
                         password = sc.next().trim();
-                        
-                      
+
                         if (tempEmail.equals(email) && tempPassword.equals(password)) {
                             found = true;
                             blank3.setText("Success");
                             blank7.setText("Success");
                             found = true;
+                            // Look for account number 
+                            Scanner sca = new Scanner(new File("random.txt"));
+
+                            // Open frame
                             Payment_Information pi = new Payment_Information();
                             System.out.println("Login Success");
                             blank3.setText(null);
                             blank7.setText(null);
                             window.setVisible(false);
                             window.dispose();
-                            
 
                         }
                         if (tempEmail.equals(email)) {
@@ -147,15 +155,16 @@ public class Login implements ActionListener {
                         } else {
                             blank3.setText("Incorrect");
 
-                        } if (tempPassword.equals(password)) {
+                        }
+                        if (tempPassword.equals(password)) {
                             blank7.setText("Success");
-                                } else{
+                        } else {
                             blank7.setText("Incorrect");
                         }
-                        if (tempEmail.isEmpty()){
+                        if (tempEmail.isEmpty()) {
                             blank7.setText("Enter a Password");
                         }
-                        if (tempPassword.isEmpty()){
+                        if (tempPassword.isEmpty()) {
                             blank3.setText("Enter an Email");
                         }
                     }
@@ -179,6 +188,9 @@ public class Login implements ActionListener {
                 passwordTextField.setText(null);
                 blank3.setText(null);
                 blank7.setText(null);
+                if(emailTextField.toString().equals("") && passwordTextField.toString().equals("")) {
+                    this.window.setVisible(false);
+                }
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e + "");
@@ -208,7 +220,9 @@ public class Login implements ActionListener {
                 blank7.setText(null);
                 window.setVisible(false);
                 window.dispose();
-                Payment_Information pi = new Payment_Information();
+                //Payment_Information pi = new Payment_Information();
+                MainWindow mw = new MainWindow();
+                mw.setVisible(true);
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e + "");
@@ -217,42 +231,31 @@ public class Login implements ActionListener {
         }
     }
 
-//    public void verifyLogin() {
-//        boolean found = false;
+    public static void scan() throws FileNotFoundException {
+        boolean found = false;
+        Scanner sca = new Scanner(new File("random.txt"));
+        String a,b,c,d,e;
+        sca.useDelimiter(":");
 
-//        try {
-//            Scanner sc = new Scanner(System.in);
-//            sc = new Scanner(new File("customerInfo.txt"));
-//            sc.useDelimiter(":");
-//            String email, password;
-//            String tempEmail = emailTextField.getText().trim();
-//            String tempPassword = passwordTextField.getText().trim();
-//
-//            while (sc.hasNext() && !found) {
-//                email = sc.next().trim();
-//                password = sc.next().trim();
-//
-//                if (tempEmail.equals(email) && tempPassword.equals(password)) {
-//                    found = true;
-//                    blank3.setText("WIN");
-//                    blank7.setText("WIN");
-//
-//                } if(tempEmail.equals(email)) {
-//                    blank4.setText("Kookie");
-//                    
-//                } else {
-//                    blank3.setText("X");
-//                    blank7.setText("X");
-//                }
-//            }
-//
-//        } catch (Exception e) {
-////
-////        }
-//    }
+        while (sca.hasNext() && !found) {
+            a = sca.next().trim();
+            b = sca.next().trim();
+            c = sca.next().trim();
+            d = sca.next().trim();
+            e = sca.next().trim();
+            System.out.println(a + " " + b + " " + c + " " + d + " " + e);
+       
+        }
+        
+    }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Login l = new Login();
-
+        /*SignUpForm suf = new SignUpForm();
+        MainWindow mw = new MainWindow();
+        Payment_Information pi = new Payment_Information();
+        SeatReservation s = new SeatReservation();
+        Confirmation_Page p = new Confirmation_Page();*/
+//scan();
     }
 }
