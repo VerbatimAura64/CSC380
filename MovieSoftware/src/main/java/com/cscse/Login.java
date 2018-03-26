@@ -251,10 +251,10 @@ public class Login implements ActionListener {
 
     public static void main(String[] args) throws FileNotFoundException {
         Login l = new Login();
-        SignUpForm suf = new SignUpForm();
-        Payment_Information pi = new Payment_Information();
-        SeatReservation s = new SeatReservation();
-        Confirmation_Page p = new Confirmation_Page();
+//        SignUpForm suf = new SignUpForm();
+//        Payment_Information pi = new Payment_Information();
+//        SeatReservation s = new SeatReservation();
+//        Confirmation_Page p = new Confirmation_Page();
 //scan();
     }
 }
