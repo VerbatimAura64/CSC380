@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cscse;
-
-/**
- *
- * @author Robert
- */
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -182,7 +172,7 @@ public class SignUpForm implements ActionListener {
                     fw.write("Name:\t" + nameTextField.getText() + "\t");
                     fw.write("Email Address:\t" + verifyEmailTextField.getText() + "\t");
                     // verifyPasswordTextField.getPassword() yields encrypted text.
-                    fw.write("Password:\t" + verifyPasswordTextField.getText() + "\t");
+                    fw.write("Password:\t" + verifyPasswordTextField.getText() + "\n");
                     displayError.setText(null);
                     displayError.setText("Member Created");
 
@@ -192,7 +182,7 @@ public class SignUpForm implements ActionListener {
 
                     // UPDATE FILE for DUPLICATES random.txt
                     FileWriter fw3 = new FileWriter("random.txt", true);
-                    fw.write(getAccountID() + ":" + ageTextField.getText() + ":" + nameTextField.getText()
+                    fw3.write(getAccountID() + ":" + ageTextField.getText() + ":" + nameTextField.getText()
                             + ":" + verifyEmailTextField.getText() + ":" + verifyPasswordTextField.getText() + ":");
 
                     fw.close();
@@ -201,7 +191,9 @@ public class SignUpForm implements ActionListener {
                     window.setVisible(false);
                     window.dispose();
                     System.out.println("File Updated");
-                    Payment_Information pi = new Payment_Information();
+                    //Payment_Information pi = new Payment_Information();
+                    MainWindow mw = new MainWindow();
+                    mw.setVisible(true);
 
                     // This is Where we Should link to Payment Info
                     // such as Credit card or in store purchase
@@ -239,14 +231,14 @@ public class SignUpForm implements ActionListener {
     public static String getAccountID() throws FileNotFoundException {
 
         String accountID = Integer.toString(checkRNG()).trim();
-        System.out.println(accountID);
+        //System.out.println(accountID);
         return accountID;
     }
 
     public static int RandomNumGenerator() {
         Random r = new Random();
         int number = r.nextInt(899) + 100;
-        System.out.println(number);
+        //System.out.println(number);
         return number;
     }
 
@@ -269,12 +261,12 @@ public class SignUpForm implements ActionListener {
         // to convert an int to a string use the value + ""
         while (aList.contains(Integer.toString(randomnum))) {
             randomnum = RandomNumGenerator();
-            System.out.println("Duplicate");
+            //System.out.println("Duplicate");
 
         }
 
-        System.out.println("YOU ROCK");
-        System.out.println(randomnum);
+        //System.out.println("YOU ROCK");
+        //System.out.println(randomnum);
 
         return randomnum;
     }
