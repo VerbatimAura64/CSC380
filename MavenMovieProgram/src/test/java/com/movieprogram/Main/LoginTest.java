@@ -50,15 +50,15 @@ public class LoginTest extends TestCase {
         bot.delay(3000);
         l.setVisible(true);
         bot.delay(1000);
-        l.loginTextField.setText("Alex Pantaleev");
+        l.loginTextField.setText("Admin");
         bot.delay(1000);
-        l.passwordField.setText("12345");
+        l.passwordField.setText("password1");
         bot.delay(1000);
         
         //Cancel Button 
-        bot.mouseMove(689,448);
+        //bot.mouseMove(689,448);
        // Guest Button 
-        bot.mouseMove(648,486);
+        //bot.mouseMove(648,486);
         // Confirm Button
         bot.mouseMove(604,448);
         bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
@@ -66,7 +66,7 @@ public class LoginTest extends TestCase {
         
         
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       //fail("The test case is a prototype.");
     }
     
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.movieprogram.Main.LoginTest" time="0.759" errors="1" skipped="0">
+<testsuite tests="1" failures="0" name="com.movieprogram.Main.LoginTest" time="7.176" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_111\jre\bin"/>
@@ -62,32 +62,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.movieprogram.Main.LoginTest" name="testMain" time="0.72">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at javax.swing.plaf.nimbus.NimbusStyle.validate(NimbusStyle.java:298)
-	at javax.swing.plaf.nimbus.NimbusStyle.getValues(NimbusStyle.java:806)
-	at javax.swing.plaf.nimbus.NimbusStyle.getInsets(NimbusStyle.java:485)
-	at javax.swing.plaf.synth.SynthStyle.installDefaults(SynthStyle.java:913)
-	at javax.swing.plaf.synth.SynthLookAndFeel.updateStyle(SynthLookAndFeel.java:265)
-	at javax.swing.plaf.synth.SynthPanelUI.updateStyle(SynthPanelUI.java:117)
-	at javax.swing.plaf.synth.SynthPanelUI.installDefaults(SynthPanelUI.java:100)
-	at javax.swing.plaf.basic.BasicPanelUI.installUI(BasicPanelUI.java:56)
-	at javax.swing.plaf.synth.SynthPanelUI.installUI(SynthPanelUI.java:62)
-	at javax.swing.JComponent.setUI(JComponent.java:666)
-	at javax.swing.JPanel.setUI(JPanel.java:153)
-	at javax.swing.JPanel.updateUI(JPanel.java:126)
-	at javax.swing.JPanel.&lt;init&gt;(JPanel.java:86)
-	at javax.swing.JPanel.&lt;init&gt;(JPanel.java:109)
-	at javax.swing.JPanel.&lt;init&gt;(JPanel.java:117)
-	at javax.swing.JRootPane.createGlassPane(JRootPane.java:546)
-	at javax.swing.JRootPane.&lt;init&gt;(JRootPane.java:366)
-	at javax.swing.JFrame.createRootPane(JFrame.java:286)
-	at javax.swing.JFrame.frameInit(JFrame.java:267)
-	at javax.swing.JFrame.&lt;init&gt;(JFrame.java:190)
-	at com.movieprogram.Main.Login.&lt;init&gt;(Login.java:27)
-	at com.movieprogram.Main.LoginTest.testMain(LoginTest.java:49)
-</error>
-    <system-out>main
-</system-out>
-  </testcase>
+  <testcase classname="com.movieprogram.Main.LoginTest" name="testMain" time="7.124"/>
 </testsuite>
