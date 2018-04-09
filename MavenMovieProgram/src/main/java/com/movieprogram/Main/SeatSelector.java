@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * GUI Frame for the Seat Selector.
  */
 package com.movieprogram.Main;
 
@@ -17,6 +15,7 @@ public class SeatSelector extends javax.swing.JFrame {
 
     /**
      * Creates new form SeatSelector
+     * Declare Variables
      */
     int seatTotal = TicketSelector.totalTickets;
     int seatCount = 0;
@@ -79,6 +78,9 @@ public class SeatSelector extends javax.swing.JFrame {
     boolean g7Clicked = false;
     boolean g8Clicked = false;
 
+    /*
+    * Initialize Components
+    */
     public SeatSelector() {
         initComponents();
     }
@@ -897,6 +899,11 @@ public class SeatSelector extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /*
+    * Actions performed to select seats. Checks to see if seat is selected, if it isn't,
+    * and the user has not selected enough seats it will select it. If it is selected
+    * then it will deselect it.
+    */
     private void a1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ButtonActionPerformed
 
         if (a1Clicked == true) {
@@ -1689,6 +1696,10 @@ public class SeatSelector extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        /*
+        * Checks to see if the correct amount of seats are chosen. If they are they are
+        * added to the seats array. If not an error is displayed.
+        */
         if (seatCount == seatTotal) {
             seatSelection();
             seatsToString();
@@ -1699,6 +1710,11 @@ public class SeatSelector extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(frame, "You must select " + seatTotal + " seats.", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+    
+    /*
+    * When continue is selected and the correct number of seats were chosen
+    * this adds all the selected seats to the seats array.
+    */
     private void seatSelection() {
         int count = 0;
         if (a1Clicked == true) {
@@ -2039,6 +2055,9 @@ public class SeatSelector extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 
+    /*
+    * Adds the seats to a string to be called later.
+    */
     private void seatsToString() {
         for (int i = 0; i < seats.length; i++) {
             if (i == 0 && seats.length == 1) {
