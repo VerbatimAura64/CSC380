@@ -13,14 +13,14 @@ import junit.framework.TestSuite;
  *
  * @author Robert
  */
-public class LoginTest extends TestCase {
+public class SignUpFormTest extends TestCase {
     
-    public LoginTest(String testName) {
+    public SignUpFormTest(String testName) {
         super(testName);
     }
 
     public static Test suite() {
-        TestSuite suite = new TestSuite(LoginTest.class);
+        TestSuite suite = new TestSuite(SignUpFormTest.class);
         return suite;
     }
     
@@ -35,12 +35,23 @@ public class LoginTest extends TestCase {
     }
 
     /**
-     * Test of main method, of class Login.
+     * Test of insert method, of class SignUpForm.
+     */
+    public void testInsert() {
+        System.out.println("insert");
+        SignUpForm instance = new SignUpForm();
+        instance.insert();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of main method, of class SignUpForm.
      */
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        Login.main(args);
+        SignUpForm.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
