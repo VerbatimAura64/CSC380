@@ -1,1 +1,0 @@
-Customer ID:0	Age:	1	Name:	1	Email Address:	1	Password:	1
