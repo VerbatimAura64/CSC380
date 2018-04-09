@@ -1028,7 +1028,7 @@ public class SeatSelector extends javax.swing.JFrame {
         if (a2Clicked == true) {
             a2Button.setBackground(null);
             seatCount--;
-            a3Clicked = false;
+            a2Clicked = false;
         } else if (a2Clicked == false) {
             if (seatCount < seatTotal) {
                 a2Button.setBackground(Color.BLUE);
@@ -1197,7 +1197,7 @@ public class SeatSelector extends javax.swing.JFrame {
             c2Button.setBackground(null);
             seatCount--;
             c2Clicked = false;
-        } else if (c1Clicked == false) {
+        } else if (c2Clicked == false) {
             if (seatCount < seatTotal) {
                 c2Button.setBackground(Color.BLUE);
                 seatCount++;
