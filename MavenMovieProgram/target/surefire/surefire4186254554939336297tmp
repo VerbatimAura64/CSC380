@@ -1,0 +1,8 @@
+#surefire
+#Mon Apr 09 12:10:26 EDT 2018
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=C\:\\Users\\Robert\\Documents\\CSC380FinalProject\\CSC380\\MavenMovieProgram
+file.encoding=UTF-8
+localRepository=C\:\\Users\\Robert\\.m2\\repository
+basedir=C\:\\Users\\Robert\\Documents\\CSC380FinalProject\\CSC380\\MavenMovieProgram
+test=com.movieprogram.Main.MainSuite
