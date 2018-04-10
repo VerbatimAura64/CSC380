@@ -24,7 +24,7 @@ public class SignUpForm extends javax.swing.JFrame {
         initComponents();
     }
 
-    String name, email;
+    String name, email, password;
 
     protected void insert() {
         try {
@@ -244,110 +244,49 @@ public class SignUpForm extends javax.swing.JFrame {
         try {
             name = nameTextField.getText();
             email = emailTextField.getText();
+            password = passwordField.getText();
             String verifiedEmail = verifyEmailTextField.getText();
-            char[] password = passwordField.getPassword();
-            char[] verifiedPassword = verifyPasswordField.getPassword();
-            System.out.println(name);
-            System.out.println(email);
-            insert();
-            if ((name.isEmpty() || email.isEmpty() || verifiedEmail.isEmpty() /*|| password.isEmpty() || verifiedPassword.isEmpty()*/)) {
+            String verifiedPassword = verifyPasswordField.getText();
+            if ((name.isEmpty() || email.isEmpty() || verifiedEmail.isEmpty() || password.isEmpty() || verifiedPassword.isEmpty())) {
                 if (name.isEmpty()) {
                     nameTextField.requestFocusInWindow();
                     Component frame = null;
                     JOptionPane.showMessageDialog(frame, "You must enter a name.", "Warning", JOptionPane.WARNING_MESSAGE);
-                } else if (name.contains(":")) {
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "Name cannot contain ':'", "Warning", JOptionPane.WARNING_MESSAGE);
-                    nameTextField.requestFocusInWindow();
                 } else if (email.isEmpty()) {
                     emailTextField.requestFocusInWindow();
                     Component frame = null;
                     JOptionPane.showMessageDialog(frame, "Please enter an email.", "Warning", JOptionPane.WARNING_MESSAGE);
-                } else if (email.contains(":")) {
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "Email cannot contain ':'", "Warning", JOptionPane.WARNING_MESSAGE);
-                    emailTextField.requestFocusInWindow();
                 } else if (verifiedEmail.isEmpty()) {
                     verifyEmailTextField.requestFocusInWindow();
                     Component frame = null;
                     JOptionPane.showMessageDialog(frame, "Please confirm email.", "Warning", JOptionPane.WARNING_MESSAGE);
-                } else if (!email.equals(verifiedEmail)) {
-                    verifyEmailTextField.requestFocusInWindow();
-                    verifyEmailTextField.selectAll();
+                } else if (password.isEmpty()) {
+                    passwordField.requestFocusInWindow();
                     Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "Emails don't match.", "Warning", JOptionPane.WARNING_MESSAGE);
-                } else if (verifiedEmail.contains(":")) {
+                    JOptionPane.showMessageDialog(frame, "Please enter a password.", "Warning", JOptionPane.WARNING_MESSAGE);
+                } else if (verifiedPassword.isEmpty()) {
+                    verifyPasswordField.requestFocusInWindow();
                     Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "Email cannot contain ':'", "Warning", JOptionPane.WARNING_MESSAGE);
-                    verifyEmailTextField.requestFocusInWindow();
-                } else if (!termsCheckBox.isSelected()) {
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "You must accept the Terms and Conditions.", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(frame, "Please verify password.", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
-            }/*else if (password.isEmpty()) {
-                        passwordField.requestFocusInWindow();
-                        displayError.setText("Please enter password");
-                    } else if (password.contains(":")) {
-                        Component frame = null;
-                        JOptionPane.showMessageDialog(frame, "Password cannot contain ':'", "Warning", JOptionPane.WARNING_MESSAGE);
-                        passwordField.requestFocusInWindow();
-                    } else if (verifiedPassword.isEmpty()) {
-                        verifyPasswordField.requestFocusInWindow();
-                        Component frame = null;
-                        JOptionPane.showMessageDialog(frame, "Please verify password.", "Warning", JOptionPane.WARNING_MESSAGE);
-                    } else if (verifiedPassword.contains(":")) {
-                        Component frame = null;
-                        JOptionPane.showMessageDialog(frame, "Password cannot contain ':'", "Warning", JOptionPane.WARNING_MESSAGE);
-                        verifyPasswordField.requestFocusInWindow();
-                    }
-        else if (verifiedEmail.equals(email) && verifiedPassword.equals(password)) {
-                    FileWriter fw = new FileWriter("customer.txt", true);
-
-                    // EDIT
-                    fw.write("Customer ID:" + getAccountID() + "\t");
-//////////////////                      fw.write(":" + getAccountID());
-                    fw.write("Age:\t" + ageTextField.getText() + "\t");
-                    fw.write("Name:\t" + nameTextField.getText() + "\t");
-                    fw.write("Email Address:\t" + verifyEmailTextField.getText() + "\t");
-                    // verifyPasswordTextField.getPassword() yields encrypted text.
-                    fw.write("Password:\t" + verifyPasswordTextField.getText() + "\t");
-                    displayError.setText(null);
-                    displayError.setText("Member Created");
-
-                    //UPDATE LOGIN PAGE customerInfo.txt APPEND MAKE SURE STAYS TRUE
-                    FileWriter fw2 = new FileWriter("customerInfo.txt", true);
-                    fw2.write(verifyEmailTextField.getText() + ":" + verifyPasswordTextField.getText() + ":" + "\n");
-
-                    // UPDATE FILE for DUPLICATES random.txt
-                    FileWriter fw3 = new FileWriter("random.txt", true);
-                    fw.write(getAccountID() + ":" + ageTextField.getText() + ":" + nameTextField.getText()
-                            + ":" + verifyEmailTextField.getText() + ":" + verifyPasswordTextField.getText() + ":");
-
-                    fw.close();
-                    fw2.close();
-                    fw3.close();
-                    window.setVisible(false);
-                    window.dispose();
-                    System.out.println("File Updated");
-                    Payment_Information pi = new Payment_Information();
-
-                    // This is Where we Should link to Payment Info
-                    // such as Credit card or in store purchase
-                } else {
-                    if (!email.equals(verifiedEmail)) {
-                        verifyEmailTextField.requestFocusInWindow();
-                        verifyEmailTextField.selectAll();
-                        displayError.setText("Emails don't match");
-                    } else if (!password.equals(verifiedPassword)) {
-                        verifyPasswordTextField.requestFocusInWindow();
-                        verifyPasswordTextField.selectAll();
-                        displayError.setText("Passwords don't match");
-                    }
-                }*/
-
-            new Mainpage().setVisible(true);
-            this.setVisible(false);
-            
+            } else if (!email.equals(verifiedEmail)) {
+                verifyEmailTextField.requestFocusInWindow();
+                verifyEmailTextField.selectAll();
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "Emails don't match.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (!password.equals(verifiedPassword)) {
+                verifyPasswordField.requestFocusInWindow();
+                verifyPasswordField.selectAll();
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "Passwords don't match.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (!termsCheckBox.isSelected()) {
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "You must accept the Terms and Conditions.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+                insert();
+                new Mainpage().setVisible(true);
+                this.setVisible(false);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + "");
 

@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.movieprogram.Main.DunkirkTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec <<< FAILURE!
+testMain(com.movieprogram.Main.DunkirkTest)  Time elapsed: 0.031 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at com.movieprogram.Main.DunkirkTest.testMain(DunkirkTest.java:45)
+
