@@ -30,12 +30,12 @@ public class SignUpForm extends javax.swing.JFrame {
         try {
             //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
             String url = "jdbc:derby://localhost:1527/csc380";
-            Connection conn = DriverManager.getConnection(url, "brandonx21", "1234");
+            Connection conn = DriverManager.getConnection(url, "csc", "380");
             //PreparedStatement ps = conn.prepareStatement("INSERT into test1 VALUES (?,?)");
 
             // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
             // Create the database, connect to it, then change the Connection conn line and String sql line to what you set
-            String sql = "INSERT INTO brandonx21.test1 VALUES (?,?)";
+            String sql = "INSERT INTO csc.movie VALUES (?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, name);
