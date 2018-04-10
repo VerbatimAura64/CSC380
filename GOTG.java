@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cscse;
+package csc380ui;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JMenuItem;
@@ -44,7 +44,7 @@ public class GoTG extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        researveSeats = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         popup.setBackground(new java.awt.Color(255, 51, 51));
         popup.setForeground(new java.awt.Color(0, 204, 204));
@@ -59,7 +59,7 @@ public class GoTG extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         dunkirkImageLarge.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dunkirkImageLarge.setIcon(new javax.swing.ImageIcon("C:/Users/Main/Downloads/MovieSoftware/src/main/java/com/cscse/guardians1.jpg")); // NOI18N
+        dunkirkImageLarge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/csc380ui/images/guardians1.jpg"))); // NOI18N
         dunkirkImageLarge.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 1, 4, 1, new java.awt.Color(0, 0, 0)));
         dunkirkImageLarge.setComponentPopupMenu(popup);
         dunkirkImageLarge.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -74,7 +74,7 @@ public class GoTG extends javax.swing.JFrame {
         jTextArea2.setColumns(20);
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
-        jTextArea2.setText("\n\n\nTitle: Guardians Of The Galaxy\n\nRelease Date: 2014\n\nStars: Chris Pratt, Zoe Saldana, Dave Bautista\n\n\nSummary:\n\n\nBrash Space Adventurer Peter Quill finds himself the quarry of relentless bounty hunters after he steals an orb coveted by Ronan, a powerful villain.");
+        jTextArea2.setText("This is the description for Guardians of The Galaxy");
         jTextArea2.setBorder(null);
         jTextArea2.setOpaque(false);
         jScrollPane2.setViewportView(jTextArea2);
@@ -127,10 +127,10 @@ public class GoTG extends javax.swing.JFrame {
             }
         });
 
-        researveSeats.setText("Researve Seats");
-        researveSeats.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Next Show");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reserveActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -150,7 +150,7 @@ public class GoTG extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(researveSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
@@ -163,7 +163,7 @@ public class GoTG extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(researveSeats, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -186,14 +186,13 @@ public class GoTG extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
      this.setVisible(false);
-     new MainWindow().setVisible(true);
+     new MainUI1().setVisible(true);
        
        
     }                                        
 
-    private void reserveActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        SeatReservation sr = new SeatReservation();
-        this.setVisible(false);
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
         
     }                                        
 
@@ -247,7 +246,7 @@ public class GoTG extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel dunkirkImageLarge;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton researveSeats;
+    private javax.swing.JButton jButton2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
