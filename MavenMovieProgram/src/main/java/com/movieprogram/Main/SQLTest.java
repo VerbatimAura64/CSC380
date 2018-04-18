@@ -32,10 +32,10 @@ public class SQLTest {
     try{
                //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
                String url = "jdbc:derby://localhost:1527/csc380";
-               Connection conn = DriverManager.getConnection(url, "brandonx21", "1234");
+               Connection conn = DriverManager.getConnection(url, "csc", "380");
                Statement st = conn.createStatement();
                String query = "SELECT * "
-                       + "FROM brandonx21.test1";
+                       + "FROM picklerick.movie";
                        
                         // Currently, all values are grabbed.
                         // We then check to see if user input (login) matches what was grabbed

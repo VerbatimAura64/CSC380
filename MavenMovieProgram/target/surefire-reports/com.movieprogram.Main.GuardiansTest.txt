@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.movieprogram.Main.GuardiansTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec <<< FAILURE!
-testMain(com.movieprogram.Main.GuardiansTest)  Time elapsed: 0.036 sec  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec <<< FAILURE!
+testMain(com.movieprogram.Main.GuardiansTest)  Time elapsed: 0.015 sec  <<< FAILURE!
 junit.framework.AssertionFailedError: The test case is a prototype.
 	at junit.framework.Assert.fail(Assert.java:47)
 	at com.movieprogram.Main.GuardiansTest.testMain(GuardiansTest.java:45)

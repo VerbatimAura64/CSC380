@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.movieprogram.Main.AdminPricesTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec <<< FAILURE!
-testMain(com.movieprogram.Main.AdminPricesTest)  Time elapsed: 0.037 sec  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+testMain(com.movieprogram.Main.AdminPricesTest)  Time elapsed: 0 sec  <<< FAILURE!
 junit.framework.AssertionFailedError: The test case is a prototype.
 	at junit.framework.Assert.fail(Assert.java:47)
 	at com.movieprogram.Main.AdminPricesTest.testMain(AdminPricesTest.java:45)
