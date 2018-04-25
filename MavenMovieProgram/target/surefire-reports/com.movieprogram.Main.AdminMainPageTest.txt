@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.movieprogram.Main.AdminMainPageTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.64 sec <<< FAILURE!
+testMain(com.movieprogram.Main.AdminMainPageTest)  Time elapsed: 0.64 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at com.movieprogram.Main.AdminMainPageTest.testMain(AdminMainPageTest.java:45)
+

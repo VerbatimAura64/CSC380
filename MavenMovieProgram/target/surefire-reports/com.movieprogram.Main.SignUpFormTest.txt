@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: com.movieprogram.Main.SignUpFormTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.066 sec <<< FAILURE!
+testInsert(com.movieprogram.Main.SignUpFormTest)  Time elapsed: 1.017 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at com.movieprogram.Main.SignUpFormTest.testInsert(SignUpFormTest.java:45)
+
+testMain(com.movieprogram.Main.SignUpFormTest)  Time elapsed: 0.046 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at com.movieprogram.Main.SignUpFormTest.testMain(SignUpFormTest.java:56)
+

@@ -19,14 +19,15 @@ public class AppTester {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws AWTException {
+        boolean test = false;
         Robot bot = new Robot();
         Login l = new Login();
         bot.delay(3000);
         l.setVisible(true);
         bot.delay(1000);
-        l.loginTextField.setText("Alex Pantaleev");
+        l.loginTextField.setText("Admin");
         bot.delay(1000);
-        l.passwordField.setText("12345");
+        l.passwordField.setText("password1");
         bot.delay(1000);
         // Button  Locations 
         // 689 , 448
@@ -37,8 +38,12 @@ public class AppTester {
         System.out.println(l.confirmButton.getLocationOnScreen());
 //        System.out.println(l.confirmButton.getX() + " " + l.confirmButton.getY());
         bot.mouseMove(604,448);
+       // l.dispose();
+       // l.setVisible(true);
+        //bot.mouseMove(644, 486);
         bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        test = true;
     }
     
 }
