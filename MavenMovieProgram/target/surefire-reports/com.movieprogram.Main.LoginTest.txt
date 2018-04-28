@@ -1,28 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.movieprogram.Main.LoginTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.76 sec <<< FAILURE!
-testMain(com.movieprogram.Main.LoginTest)  Time elapsed: 0.72 sec  <<< ERROR!
-java.lang.NullPointerException
-	at javax.swing.plaf.nimbus.NimbusStyle.validate(NimbusStyle.java:298)
-	at javax.swing.plaf.nimbus.NimbusStyle.getValues(NimbusStyle.java:806)
-	at javax.swing.plaf.nimbus.NimbusStyle.getInsets(NimbusStyle.java:485)
-	at javax.swing.plaf.synth.SynthStyle.installDefaults(SynthStyle.java:913)
-	at javax.swing.plaf.synth.SynthLookAndFeel.updateStyle(SynthLookAndFeel.java:265)
-	at javax.swing.plaf.synth.SynthPanelUI.updateStyle(SynthPanelUI.java:117)
-	at javax.swing.plaf.synth.SynthPanelUI.installDefaults(SynthPanelUI.java:100)
-	at javax.swing.plaf.basic.BasicPanelUI.installUI(BasicPanelUI.java:56)
-	at javax.swing.plaf.synth.SynthPanelUI.installUI(SynthPanelUI.java:62)
-	at javax.swing.JComponent.setUI(JComponent.java:666)
-	at javax.swing.JPanel.setUI(JPanel.java:153)
-	at javax.swing.JPanel.updateUI(JPanel.java:126)
-	at javax.swing.JPanel.<init>(JPanel.java:86)
-	at javax.swing.JPanel.<init>(JPanel.java:109)
-	at javax.swing.JPanel.<init>(JPanel.java:117)
-	at javax.swing.JRootPane.createGlassPane(JRootPane.java:546)
-	at javax.swing.JRootPane.<init>(JRootPane.java:366)
-	at javax.swing.JFrame.createRootPane(JFrame.java:286)
-	at javax.swing.JFrame.frameInit(JFrame.java:267)
-	at javax.swing.JFrame.<init>(JFrame.java:190)
-	at com.movieprogram.Main.Login.<init>(Login.java:27)
-	at com.movieprogram.Main.LoginTest.testMain(LoginTest.java:49)
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.209 sec
