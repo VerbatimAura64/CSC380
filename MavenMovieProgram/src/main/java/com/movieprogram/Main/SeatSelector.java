@@ -2313,9 +2313,13 @@ public class SeatSelector extends javax.swing.JFrame {
     private void initTable() throws SQLException {
         try {
             String url = "jdbc:derby://localhost:1527/csc380";
-            Connection conn = DriverManager.getConnection(url, "csc", "380");
+            
+            Connection conn = DriverManager.getConnection(url, "picklerick", "junkrat");
+            //Connection conn = DriverManager.getConnection(url, "csc", "380");
             Statement st = conn.createStatement();
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM CSC.SOLDSEATS WHERE SHOWING = '" + Mainpage.primaryKey + "'");
+                        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM PICKLERICK.SOLDSEATS WHERE SHOWING = '" + Mainpage.primaryKey + "'");
+
+            //PreparedStatement stmt = conn.prepareStatement("SELECT * FROM CSC.SOLDSEATS WHERE SHOWING = '" + Mainpage.primaryKey + "'");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 a1Available = rs.getInt("A1");

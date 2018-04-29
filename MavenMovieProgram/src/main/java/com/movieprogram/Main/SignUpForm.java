@@ -20,7 +20,7 @@ public class SignUpForm extends javax.swing.JFrame {
     /**
      * Creates new form SignUpForm
      */
-    public static int loggedIn;
+   // public static int loggedIn;
 
     public SignUpForm() {
         initComponents();
@@ -32,7 +32,8 @@ public class SignUpForm extends javax.swing.JFrame {
         try {
             //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
             String url = "jdbc:derby://localhost:1527/csc380";
-            Connection conn = DriverManager.getConnection(url, "csc", "380");
+            Connection conn = DriverManager.getConnection(url, "picklerick", "junkrat");
+           // Connection conn = DriverManager.getConnection(url, "csc", "380");
             Statement st = conn.createStatement();
 
             // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
@@ -41,7 +42,9 @@ public class SignUpForm extends javax.swing.JFrame {
             String userPassword = passwordField.getText();
             String userName = nameTextField.getText();
             try {
-                st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                                //st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+
+                st.executeUpdate("INSERT INTO PICKLERICK.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
             } catch (Exception e) {
                 Component frame = null;
                 JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -248,7 +251,7 @@ public class SignUpForm extends javax.swing.JFrame {
     }//GEN-LAST:event_verifyPasswordFieldActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        loggedIn = 0;
+        
         name = nameTextField.getText();
         email = emailTextField.getText();
         password = passwordField.getText();
@@ -298,7 +301,8 @@ public class SignUpForm extends javax.swing.JFrame {
             try {
                 //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
                 String url = "jdbc:derby://localhost:1527/csc380";
-                Connection conn = DriverManager.getConnection(url, "csc", "380");
+                Connection conn = DriverManager.getConnection(url, "picklerick", "junkrat");
+                //Connection conn = DriverManager.getConnection(url, "csc", "380");
                 Statement st = conn.createStatement();
 
                 // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
@@ -307,7 +311,9 @@ public class SignUpForm extends javax.swing.JFrame {
                 String userPassword = passwordField.getText();
                 String userName = nameTextField.getText();
                 try {
-                    st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                                        //st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+
+                    st.executeUpdate("INSERT INTO PICKLERICK.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
                 } catch (Exception e) {
                     Component frame = null;
                     JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -321,7 +327,7 @@ public class SignUpForm extends javax.swing.JFrame {
                 System.err.println(e.getMessage());
             }
             if (userFound != 1) {
-                loggedIn = 1;
+                Login.loggedIn = 1;
                 new Mainpage().setVisible(true);
                 this.setVisible(false);
             }
