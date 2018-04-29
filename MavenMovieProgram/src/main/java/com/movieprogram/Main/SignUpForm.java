@@ -20,6 +20,8 @@ public class SignUpForm extends javax.swing.JFrame {
     /**
      * Creates new form SignUpForm
      */
+    public static int loggedIn;
+
     public SignUpForm() {
         initComponents();
     }
@@ -38,8 +40,12 @@ public class SignUpForm extends javax.swing.JFrame {
             String userEmail = emailTextField.getText();
             String userPassword = passwordField.getText();
             String userName = nameTextField.getText();
-
-            st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+            try {
+                st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+            } catch (Exception e) {
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
             conn.commit();
             st.close();
             conn.close();
@@ -79,7 +85,6 @@ public class SignUpForm extends javax.swing.JFrame {
         termsCheckBox = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -235,6 +240,7 @@ public class SignUpForm extends javax.swing.JFrame {
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         this.setVisible(false);
+        new Login().setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void verifyPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyPasswordFieldActionPerformed
@@ -242,11 +248,13 @@ public class SignUpForm extends javax.swing.JFrame {
     }//GEN-LAST:event_verifyPasswordFieldActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        loggedIn = 0;
         name = nameTextField.getText();
         email = emailTextField.getText();
         password = passwordField.getText();
         String verifiedEmail = verifyEmailTextField.getText();
         String verifiedPassword = verifyPasswordField.getText();
+        int userFound = 0;
         if ((name.isEmpty() || email.isEmpty() || verifiedEmail.isEmpty() || password.isEmpty() || verifiedPassword.isEmpty())) {
             if (name.isEmpty()) {
                 nameTextField.requestFocusInWindow();
@@ -287,9 +295,36 @@ public class SignUpForm extends javax.swing.JFrame {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "You must accept the Terms and Conditions.", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
-            insert();
-            new Mainpage().setVisible(true);
-            this.setVisible(false);
+            try {
+                //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
+                String url = "jdbc:derby://localhost:1527/csc380";
+                Connection conn = DriverManager.getConnection(url, "csc", "380");
+                Statement st = conn.createStatement();
+
+                // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
+                // Create the database, connect to it, then change the Connection conn line and String sql line to what you set
+                String userEmail = emailTextField.getText();
+                String userPassword = passwordField.getText();
+                String userName = nameTextField.getText();
+                try {
+                    st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                } catch (Exception e) {
+                    Component frame = null;
+                    JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
+                    userFound = 1;
+                }
+                conn.commit();
+                st.close();
+                conn.close();
+            } catch (Exception e) {
+                System.err.println("Error");
+                System.err.println(e.getMessage());
+            }
+            if (userFound != 1) {
+                loggedIn = 1;
+                new Mainpage().setVisible(true);
+                this.setVisible(false);
+            }
         }
     }//GEN-LAST:event_createButtonActionPerformed
 

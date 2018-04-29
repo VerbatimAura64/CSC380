@@ -22,7 +22,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public static boolean loggedIn = false;
+    public static int loggedIn;
 
     public Login() {
         initComponents();
@@ -171,6 +171,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginTextFieldActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        loggedIn = 0;
         userId = loginTextField.getText();
         password = passwordField.getText();
         if (userId.isEmpty()) {
@@ -208,6 +209,7 @@ public class Login extends javax.swing.JFrame {
                     //System.out.println(name + "  " + email);
                     if (userId.equals(userName) && password.equals(userPassword)) {
                         //System.out.println("we good");
+                        loggedIn = 1;
                         this.setVisible(false);
                         new Mainpage().setVisible(true);
                         break;
@@ -246,6 +248,7 @@ public class Login extends javax.swing.JFrame {
 
     private void signUpLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpLabelMouseClicked
         new SignUpForm().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_signUpLabelMouseClicked
 
     /**

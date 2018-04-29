@@ -181,7 +181,7 @@ public class ConfirmationPage extends javax.swing.JFrame {
 
     private void pickAnotherMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickAnotherMovieButtonActionPerformed
         this.setVisible(false);
-        if (Login.loggedIn == true) {
+        if (Login.loggedIn == 1 || SignUpForm.loggedIn == 1) {
             new Mainpage().setVisible(true);
         } else {
             Component frame = null;
