@@ -6,6 +6,10 @@
 package com.movieprogram.Main;
 
 import java.awt.Component;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +24,10 @@ public class Mainpage extends javax.swing.JFrame {
     static String movie = "";
     static String time = "";
     static String date = "";
+    static String m;
+    static String d;
+    static String t;
+    static String primaryKey;
 
     public Mainpage() {
         initComponents();
@@ -39,6 +47,8 @@ public class Mainpage extends javax.swing.JFrame {
         movie2TimeButtons = new javax.swing.ButtonGroup();
         jPanel4 = new javax.swing.JPanel();
         movie3TimeButtons = new javax.swing.ButtonGroup();
+        movie4TimeButtons = new javax.swing.ButtonGroup();
+        movie5TimeButtons = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         johnWickPicture = new javax.swing.JLabel();
@@ -82,13 +92,54 @@ public class Mainpage extends javax.swing.JFrame {
         movie3Time4 = new javax.swing.JRadioButton();
         movie3Time5 = new javax.swing.JRadioButton();
         movie3Time6 = new javax.swing.JRadioButton();
+        movie4RadioButton = new javax.swing.JRadioButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel8 = new javax.swing.JPanel();
+        movie4Time1 = new javax.swing.JRadioButton();
+        movie4Time2 = new javax.swing.JRadioButton();
+        movie4Time3 = new javax.swing.JRadioButton();
+        movie4Time4 = new javax.swing.JRadioButton();
+        movie4Time5 = new javax.swing.JRadioButton();
+        movie4Time6 = new javax.swing.JRadioButton();
+        movie4Time7 = new javax.swing.JRadioButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jPanel9 = new javax.swing.JPanel();
+        movie5Time1 = new javax.swing.JRadioButton();
+        movie5Time2 = new javax.swing.JRadioButton();
+        movie5Time3 = new javax.swing.JRadioButton();
+        movie5Time4 = new javax.swing.JRadioButton();
+        movie5Time5 = new javax.swing.JRadioButton();
+        movie5Time6 = new javax.swing.JRadioButton();
+        movie5Time7 = new javax.swing.JRadioButton();
+        movie5RadioButton = new javax.swing.JRadioButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel7 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         continueButton = new javax.swing.JButton();
         dateComboBox = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -155,6 +206,11 @@ public class Mainpage extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ThreatLVLMidnight.jpg"))); // NOI18N
         jLabel8.setToolTipText("Threat Level Midnight");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Lethal Weapon 6");
@@ -162,6 +218,11 @@ public class Mainpage extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Lethal weapon 6.png"))); // NOI18N
         jLabel10.setToolTipText("Lethal Weapon 6");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -205,7 +266,7 @@ public class Mainpage extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -466,6 +527,168 @@ public class Mainpage extends javax.swing.JFrame {
 
         movie3Times.setViewportView(jPanel6);
 
+        movieButtons.add(movie4RadioButton);
+        movie4RadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        movie4RadioButton.setText("Threat Level Midnight");
+        movie4RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movie4RadioButtonActionPerformed(evt);
+            }
+        });
+
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        movie4TimeButtons.add(movie4Time1);
+        movie4Time1.setText("10:00 AM");
+        movie4Time1.setEnabled(false);
+
+        movie4TimeButtons.add(movie4Time2);
+        movie4Time2.setText("12:00 PM");
+        movie4Time2.setEnabled(false);
+
+        movie4TimeButtons.add(movie4Time3);
+        movie4Time3.setText("2:00 PM");
+        movie4Time3.setEnabled(false);
+
+        movie4TimeButtons.add(movie4Time4);
+        movie4Time4.setText("4:00 PM");
+        movie4Time4.setEnabled(false);
+
+        movie4TimeButtons.add(movie4Time5);
+        movie4Time5.setText("6:00 PM");
+        movie4Time5.setEnabled(false);
+
+        movie4TimeButtons.add(movie4Time6);
+        movie4Time6.setText("8:00 PM");
+        movie4Time6.setEnabled(false);
+
+        movie4TimeButtons.add(movie4Time7);
+        movie4Time7.setText("10:00 PM");
+        movie4Time7.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(movie4Time1)
+                .addGap(50, 50, 50)
+                .addComponent(movie4Time2)
+                .addGap(50, 50, 50)
+                .addComponent(movie4Time3)
+                .addGap(50, 50, 50)
+                .addComponent(movie4Time4)
+                .addGap(50, 50, 50)
+                .addComponent(movie4Time5)
+                .addGap(50, 50, 50)
+                .addComponent(movie4Time6)
+                .addGap(50, 50, 50)
+                .addComponent(movie4Time7)
+                .addGap(0, 333, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(movie4Time1)
+                    .addComponent(movie4Time2)
+                    .addComponent(movie4Time3)
+                    .addComponent(movie4Time4)
+                    .addComponent(movie4Time5)
+                    .addComponent(movie4Time6)
+                    .addComponent(movie4Time7))
+                .addGap(0, 77, Short.MAX_VALUE))
+        );
+
+        jScrollPane3.setViewportView(jPanel8);
+
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        movie5TimeButtons.add(movie5Time1);
+        movie5Time1.setText("10:10 AM");
+        movie5Time1.setEnabled(false);
+        movie5Time1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movie5Time1ActionPerformed(evt);
+            }
+        });
+
+        movie5TimeButtons.add(movie5Time2);
+        movie5Time2.setText("12:30 PM");
+        movie5Time2.setEnabled(false);
+
+        movie5TimeButtons.add(movie5Time3);
+        movie5Time3.setText("3:15 PM");
+        movie5Time3.setEnabled(false);
+
+        movie5TimeButtons.add(movie5Time4);
+        movie5Time4.setText("5:00 PM");
+        movie5Time4.setEnabled(false);
+
+        movie5TimeButtons.add(movie5Time5);
+        movie5Time5.setText("7:45 PM");
+        movie5Time5.setEnabled(false);
+        movie5Time5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movie5Time5ActionPerformed(evt);
+            }
+        });
+
+        movie5TimeButtons.add(movie5Time6);
+        movie5Time6.setText("9:00 PM");
+        movie5Time6.setEnabled(false);
+
+        movie5TimeButtons.add(movie5Time7);
+        movie5Time7.setText("11:30 PM");
+        movie5Time7.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(movie5Time1)
+                .addGap(50, 50, 50)
+                .addComponent(movie5Time2)
+                .addGap(50, 50, 50)
+                .addComponent(movie5Time3)
+                .addGap(50, 50, 50)
+                .addComponent(movie5Time4)
+                .addGap(50, 50, 50)
+                .addComponent(movie5Time5)
+                .addGap(50, 50, 50)
+                .addComponent(movie5Time6)
+                .addGap(50, 50, 50)
+                .addComponent(movie5Time7)
+                .addGap(0, 333, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(movie5Time1)
+                    .addComponent(movie5Time2)
+                    .addComponent(movie5Time3)
+                    .addComponent(movie5Time4)
+                    .addComponent(movie5Time5)
+                    .addComponent(movie5Time6)
+                    .addComponent(movie5Time7))
+                .addGap(0, 77, Short.MAX_VALUE))
+        );
+
+        jScrollPane4.setViewportView(jPanel9);
+
+        movieButtons.add(movie5RadioButton);
+        movie5RadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        movie5RadioButton.setText("Lethal Weapon 6");
+        movie5RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movie5RadioButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -481,14 +704,21 @@ public class Mainpage extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(movie3RadioButton))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(movie1Times, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-                            .addComponent(movie2Times, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(movie3Times, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(701, Short.MAX_VALUE))
+                        .addComponent(movie4RadioButton))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(movie3Times, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(movie1Times, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                                .addComponent(movie2Times, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(movie5RadioButton)))
+                .addContainerGap(741, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,7 +735,15 @@ public class Mainpage extends javax.swing.JFrame {
                 .addComponent(movie3RadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(movie3Times, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(movie4RadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(movie5RadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel2);
@@ -513,15 +751,205 @@ public class Mainpage extends javax.swing.JFrame {
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel12.setText("A Quiet Place sequel is in the works.");
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/A-Quiet-Place.jpg"))); // NOI18N
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+
+        jLabel14.setText("Source: RottenTomatoes.com");
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/annabelle.jpg"))); // NOI18N
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel16.setText("Third Annabelle film announced for 2019. ");
+        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
+
+        jLabel17.setText("Source: Variety.com");
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/heredity.png"))); // NOI18N
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+
+        jLabel19.setText("Source: Gizmodo.com");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel20.setText("Theater accidentally plays horror trailer...");
+        jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/summermovies.jpg"))); // NOI18N
+        jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
+
+        jLabel22.setText("Source: LATimes.com");
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel23.setText("2018 Summer Movies");
+        jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/marvelmovies.jpg"))); // NOI18N
+        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel24MouseClicked(evt);
+            }
+        });
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel25.setText("Upcoming Marvel Movies");
+        jLabel25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel25MouseClicked(evt);
+            }
+        });
+
+        jLabel26.setText("Source: Time.com");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 661, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel14)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel23)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26))))
+                .addContainerGap(364, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator3)
+                    .addComponent(jSeparator4)
+                    .addComponent(jSeparator5))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 157, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel14)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel17)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel18))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel19)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel21))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel22)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel24))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel26)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(234, Short.MAX_VALUE))
         );
 
         jScrollPane5.setViewportView(jPanel7);
@@ -543,9 +971,16 @@ public class Mainpage extends javax.swing.JFrame {
             }
         });
 
-        dateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3/26/18", "3/27/18", "3/28/18", "3/30/18" }));
+        dateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5/14/18", "5/15/18", "5/16/18", "5/17/18", "5/18/18" }));
 
         jLabel5.setText("Date");
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schrutefarms_bannerad.gif"))); // NOI18N
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -556,13 +991,18 @@ public class Mainpage extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(161, 161, 161))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jScrollPane5)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(continueButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -571,11 +1011,7 @@ public class Mainpage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(dateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(161, 161, 161))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -585,7 +1021,7 @@ public class Mainpage extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -597,8 +1033,10 @@ public class Mainpage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backButton)
-                            .addComponent(continueButton)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(continueButton)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -632,6 +1070,22 @@ public class Mainpage extends javax.swing.JFrame {
         movie2Time6.setEnabled(false);
         movie2TimeButtons.clearSelection();
         movie3TimeButtons.clearSelection();
+        movie4Time1.setEnabled(false);
+        movie4Time2.setEnabled(false);
+        movie4Time3.setEnabled(false);
+        movie4Time4.setEnabled(false);
+        movie4Time5.setEnabled(false);
+        movie4Time6.setEnabled(false);
+        movie4Time7.setEnabled(false);
+        movie5Time1.setEnabled(false);
+        movie5Time2.setEnabled(false);
+        movie5Time3.setEnabled(false);
+        movie5Time4.setEnabled(false);
+        movie5Time5.setEnabled(false);
+        movie5Time6.setEnabled(false);
+        movie5Time7.setEnabled(false);
+        movie5TimeButtons.clearSelection();
+        movie4TimeButtons.clearSelection();
     }//GEN-LAST:event_movie1RadioButtonActionPerformed
 
     private void movie1Time1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movie1Time1ActionPerformed
@@ -660,99 +1114,206 @@ public class Mainpage extends javax.swing.JFrame {
 
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
         if (movie1RadioButton.isSelected()) {
-            //movie = "Guardians of the Galaxy";
             movie = movie1RadioButton.getText();
             date = (String) dateComboBox.getSelectedItem();
+            m = "1";
             if (movie1Time1.isSelected()) {
-                time = "10:00 AM";
+                time = movie1Time1.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "1";
             } else if (movie1Time2.isSelected()) {
-                time = "12:15 PM";
+                time = movie1Time2.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "2";
             } else if (movie1Time3.isSelected()) {
-                time = "2:45 PM";
+                time = movie1Time3.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "3";
             } else if (movie1Time4.isSelected()) {
-                time = "4:50 PM";
+                time = movie1Time4.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "4";
             } else if (movie1Time5.isSelected()) {
-                time = "7:15 PM";
+                time = movie1Time5.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "5";
             } else if (movie1Time6.isSelected()) {
-                time = "9:30 PM";
+                time = movie1Time6.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "6";
             } else if (movie1Time7.isSelected()) {
-                time = "10:45 PM";
+                time = movie1Time7.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "7";
             } else {
                 Component frame = null;
                 JOptionPane.showMessageDialog(frame, "You must select a time.", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         } else if (movie2RadioButton.isSelected()) {
-            movie = "Dunkirk";
+            movie = movie2RadioButton.getText();
             date = (String) dateComboBox.getSelectedItem();
+            m = "2";
             if (movie2Time1.isSelected()) {
-                time = "11:15 AM";
+                time = movie2Time1.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "1";
             } else if (movie2Time2.isSelected()) {
-                time = "1:45 PM";
+                time = movie2Time2.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "2";
             } else if (movie2Time3.isSelected()) {
-                time = "3:50 PM";
+                time = movie2Time3.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "3";
             } else if (movie2Time4.isSelected()) {
-                time = "5:25 PM";
+                time = movie2Time4.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "4";
             } else if (movie2Time5.isSelected()) {
-                time = "8:00 PM";
+                time = movie2Time5.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "5";
             } else if (movie2Time6.isSelected()) {
-                time = "10:15 PM";
+                time = movie2Time6.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "6";
             } else {
                 Component frame = null;
                 JOptionPane.showMessageDialog(frame, "You must select a time.", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         } else if (movie3RadioButton.isSelected()) {
-            movie = "John Wick";
+            movie = movie3RadioButton.getText();
             date = (String) dateComboBox.getSelectedItem();
+            m = "3";
             if (movie3Time1.isSelected()) {
-                time = "10:30 AM";
+                time = movie3Time1.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "1";
             } else if (movie3Time2.isSelected()) {
-                time = "12:05 PM";
+                time = movie3Time2.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "2";
             } else if (movie3Time3.isSelected()) {
-                time = "2:45 PM";
+                time = movie3Time3.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "3";
             } else if (movie3Time4.isSelected()) {
-                time = "4:50 PM";
+                time = movie3Time4.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "4";
             } else if (movie3Time5.isSelected()) {
-                time = "7:50 PM";
+                time = movie3Time5.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "5";
             } else if (movie3Time6.isSelected()) {
-                time = "10:00 PM";
+                time = movie3Time6.getText();
                 this.setVisible(false);
                 new TicketSelector().setVisible(true);
+                t = "6";
+            } else {
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "You must select a time.", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (movie4RadioButton.isSelected()) {
+            movie = movie4RadioButton.getText();
+            date = (String) dateComboBox.getSelectedItem();
+            m = "1";
+            if (movie4Time1.isSelected()) {
+                time = movie4Time1.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "1";
+            } else if (movie4Time2.isSelected()) {
+                time = movie4Time2.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "2";
+            } else if (movie4Time3.isSelected()) {
+                time = movie4Time3.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "3";
+            } else if (movie4Time4.isSelected()) {
+                time = movie4Time4.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "4";
+            } else if (movie4Time5.isSelected()) {
+                time = movie4Time5.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "5";
+            } else if (movie4Time6.isSelected()) {
+                time = movie4Time6.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "6";
+            } else if (movie4Time7.isSelected()) {
+                time = movie4Time7.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "7";
+            } else {
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "You must select a time.", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (movie5RadioButton.isSelected()) {
+            movie = movie5RadioButton.getText();
+            date = (String) dateComboBox.getSelectedItem();
+            m = "1";
+            if (movie5Time1.isSelected()) {
+                time = movie5Time1.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "1";
+            } else if (movie5Time2.isSelected()) {
+                time = movie5Time2.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "2";
+            } else if (movie5Time3.isSelected()) {
+                time = movie5Time3.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "3";
+            } else if (movie5Time4.isSelected()) {
+                time = movie5Time4.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "4";
+            } else if (movie5Time5.isSelected()) {
+                time = movie5Time5.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "5";
+            } else if (movie5Time6.isSelected()) {
+                time = movie5Time6.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "6";
+            } else if (movie5Time7.isSelected()) {
+                time = movie5Time7.getText();
+                this.setVisible(false);
+                new TicketSelector().setVisible(true);
+                t = "7";
             } else {
                 Component frame = null;
                 JOptionPane.showMessageDialog(frame, "You must select a time.", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -761,6 +1322,18 @@ public class Mainpage extends javax.swing.JFrame {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "You must select a movie.", "Warning", JOptionPane.WARNING_MESSAGE);
         }
+        if (dateComboBox.getItemAt(0).equals(date)) {
+            d = "1";
+        } else if (dateComboBox.getItemAt(1).equals(date)) {
+            d = "2";
+        } else if (dateComboBox.getItemAt(2).equals(date)) {
+            d = "3";
+        } else if (dateComboBox.getItemAt(3).equals(date)) {
+            d = "4";
+        } else if (dateComboBox.getItemAt(4).equals(date)) {
+            d = "5";
+        }
+        primaryKey = "M" + m + "D" + d + "T" + t;
     }//GEN-LAST:event_continueButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -790,6 +1363,22 @@ public class Mainpage extends javax.swing.JFrame {
         movie2Time6.setEnabled(true);
         movie3TimeButtons.clearSelection();
         movie1TimeButtons.clearSelection();
+        movie4Time1.setEnabled(false);
+        movie4Time2.setEnabled(false);
+        movie4Time3.setEnabled(false);
+        movie4Time4.setEnabled(false);
+        movie4Time5.setEnabled(false);
+        movie4Time6.setEnabled(false);
+        movie4Time7.setEnabled(false);
+        movie5Time1.setEnabled(false);
+        movie5Time2.setEnabled(false);
+        movie5Time3.setEnabled(false);
+        movie5Time4.setEnabled(false);
+        movie5Time5.setEnabled(false);
+        movie5Time6.setEnabled(false);
+        movie5Time7.setEnabled(false);
+        movie5TimeButtons.clearSelection();
+        movie4TimeButtons.clearSelection();
     }//GEN-LAST:event_movie2RadioButtonActionPerformed
 
     private void movie3RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movie3RadioButtonActionPerformed
@@ -812,6 +1401,22 @@ public class Mainpage extends javax.swing.JFrame {
         movie2Time4.setEnabled(false);
         movie2Time5.setEnabled(false);
         movie2Time6.setEnabled(false);
+        movie4Time1.setEnabled(false);
+        movie4Time2.setEnabled(false);
+        movie4Time3.setEnabled(false);
+        movie4Time4.setEnabled(false);
+        movie4Time5.setEnabled(false);
+        movie4Time6.setEnabled(false);
+        movie4Time7.setEnabled(false);
+        movie5Time1.setEnabled(false);
+        movie5Time2.setEnabled(false);
+        movie5Time3.setEnabled(false);
+        movie5Time4.setEnabled(false);
+        movie5Time5.setEnabled(false);
+        movie5Time6.setEnabled(false);
+        movie5Time7.setEnabled(false);
+        movie5TimeButtons.clearSelection();
+        movie4TimeButtons.clearSelection();
         movie2TimeButtons.clearSelection();
         movie1TimeButtons.clearSelection();
     }//GEN-LAST:event_movie3RadioButtonActionPerformed
@@ -824,8 +1429,259 @@ public class Mainpage extends javax.swing.JFrame {
     private void dunkirkPictureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dunkirkPictureMouseClicked
         new Dunkirk().setVisible(true);
         this.setVisible(false);
-        this.dispose();
     }//GEN-LAST:event_dunkirkPictureMouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("https://www.tripadvisor.com/Hotel_Review-g52842-d730099-Reviews-or430-Schrute_Farms-Honesdale_Pocono_Mountains_Region_Pennsylvania.html");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        new ThreatLevelMidnight().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        new LethalWeapon6().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void movie4RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movie4RadioButtonActionPerformed
+        movie1Time1.setEnabled(false);
+        movie1Time2.setEnabled(false);
+        movie1Time3.setEnabled(false);
+        movie1Time4.setEnabled(false);
+        movie1Time5.setEnabled(false);
+        movie1Time6.setEnabled(false);
+        movie1Time7.setEnabled(false);
+        movie3Time1.setEnabled(false);
+        movie3Time2.setEnabled(false);
+        movie3Time3.setEnabled(false);
+        movie3Time4.setEnabled(false);
+        movie3Time5.setEnabled(false);
+        movie3Time6.setEnabled(false);
+        movie2Time1.setEnabled(false);
+        movie2Time2.setEnabled(false);
+        movie2Time3.setEnabled(false);
+        movie2Time4.setEnabled(false);
+        movie2Time5.setEnabled(false);
+        movie2Time6.setEnabled(false);
+        movie2TimeButtons.clearSelection();
+        movie3TimeButtons.clearSelection();
+        movie4Time1.setEnabled(true);
+        movie4Time2.setEnabled(true);
+        movie4Time3.setEnabled(true);
+        movie4Time4.setEnabled(true);
+        movie4Time5.setEnabled(true);
+        movie4Time6.setEnabled(true);
+        movie4Time7.setEnabled(true);
+        movie5Time1.setEnabled(false);
+        movie5Time2.setEnabled(false);
+        movie5Time3.setEnabled(false);
+        movie5Time4.setEnabled(false);
+        movie5Time5.setEnabled(false);
+        movie5Time6.setEnabled(false);
+        movie5Time7.setEnabled(false);
+        movie5TimeButtons.clearSelection();
+        movie1TimeButtons.clearSelection();
+    }//GEN-LAST:event_movie4RadioButtonActionPerformed
+
+    private void movie5RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movie5RadioButtonActionPerformed
+        movie1Time1.setEnabled(false);
+        movie1Time2.setEnabled(false);
+        movie1Time3.setEnabled(false);
+        movie1Time4.setEnabled(false);
+        movie1Time5.setEnabled(false);
+        movie1Time6.setEnabled(false);
+        movie1Time7.setEnabled(false);
+        movie3Time1.setEnabled(false);
+        movie3Time2.setEnabled(false);
+        movie3Time3.setEnabled(false);
+        movie3Time4.setEnabled(false);
+        movie3Time5.setEnabled(false);
+        movie3Time6.setEnabled(false);
+        movie2Time1.setEnabled(false);
+        movie2Time2.setEnabled(false);
+        movie2Time3.setEnabled(false);
+        movie2Time4.setEnabled(false);
+        movie2Time5.setEnabled(false);
+        movie2Time6.setEnabled(false);
+        movie2TimeButtons.clearSelection();
+        movie3TimeButtons.clearSelection();
+        movie4Time1.setEnabled(false);
+        movie4Time2.setEnabled(false);
+        movie4Time3.setEnabled(false);
+        movie4Time4.setEnabled(false);
+        movie4Time5.setEnabled(false);
+        movie4Time6.setEnabled(false);
+        movie4Time7.setEnabled(false);
+        movie5Time1.setEnabled(true);
+        movie5Time2.setEnabled(true);
+        movie5Time3.setEnabled(true);
+        movie5Time4.setEnabled(true);
+        movie5Time5.setEnabled(true);
+        movie5Time6.setEnabled(true);
+        movie5Time7.setEnabled(true);
+        movie1TimeButtons.clearSelection();
+        movie4TimeButtons.clearSelection();
+    }//GEN-LAST:event_movie5RadioButtonActionPerformed
+
+    private void movie5Time1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movie5Time1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_movie5Time1ActionPerformed
+
+    private void movie5Time5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movie5Time5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_movie5Time5ActionPerformed
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("https://editorial.rottentomatoes.com/article/a-quiet-place-sequel-in-the-works-and-more-movie-news/");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("https://editorial.rottentomatoes.com/article/a-quiet-place-sequel-in-the-works-and-more-movie-news/");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("http://www.vulture.com/2018/04/annabelle-will-extend-her-reign-of-terror-for-a-third-movie.html");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("http://www.vulture.com/2018/04/annabelle-will-extend-her-reign-of-terror-for-a-third-movie.html");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("https://gizmodo.com/theater-accidentally-plays-horror-movie-trailer-before-1825592621");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("https://gizmodo.com/theater-accidentally-plays-horror-movie-trailer-before-1825592621");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("http://www.latimes.com/entertainment/movies/la-et-mn-summer-movie-sneaks-20160426-htmlstory.html");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("http://www.latimes.com/entertainment/movies/la-et-mn-summer-movie-sneaks-20160426-htmlstory.html");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel23MouseClicked
+
+    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("http://time.com/5167535/upcoming-marvel-movies/");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel24MouseClicked
+
+    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+        if (Desktop.isDesktopSupported()) {
+            Desktop d = Desktop.getDesktop();
+            try {
+                URI url = new URI("http://time.com/5167535/upcoming-marvel-movies/");
+                d.browse(url);
+            } catch (IOException ex) {
+                // do nothing
+            } catch (URISyntaxException ex) {
+                //do nothing
+            }
+        }
+    }//GEN-LAST:event_jLabel25MouseClicked
 
     /**
      * @param args the command line arguments
@@ -869,15 +1725,31 @@ public class Mainpage extends javax.swing.JFrame {
     public javax.swing.JLabel dunkirkPicture;
     public javax.swing.JLabel goTGPicture;
     public javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel14;
+    public javax.swing.JLabel jLabel15;
+    public javax.swing.JLabel jLabel16;
+    public javax.swing.JLabel jLabel17;
+    public javax.swing.JLabel jLabel18;
+    public javax.swing.JLabel jLabel19;
     public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel20;
+    public javax.swing.JLabel jLabel21;
+    public javax.swing.JLabel jLabel22;
+    public javax.swing.JLabel jLabel23;
+    public javax.swing.JLabel jLabel24;
+    public javax.swing.JLabel jLabel25;
+    public javax.swing.JLabel jLabel26;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
@@ -885,9 +1757,18 @@ public class Mainpage extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel5;
     public javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanel7;
+    public javax.swing.JPanel jPanel8;
+    public javax.swing.JPanel jPanel9;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JScrollPane jScrollPane5;
+    public javax.swing.JSeparator jSeparator1;
+    public javax.swing.JSeparator jSeparator2;
+    public javax.swing.JSeparator jSeparator3;
+    public javax.swing.JSeparator jSeparator4;
+    public javax.swing.JSeparator jSeparator5;
     public javax.swing.JLabel johnWickPicture;
     public javax.swing.JRadioButton movie1RadioButton;
     public javax.swing.JRadioButton movie1Time1;
@@ -917,6 +1798,24 @@ public class Mainpage extends javax.swing.JFrame {
     public javax.swing.JRadioButton movie3Time6;
     public javax.swing.ButtonGroup movie3TimeButtons;
     public javax.swing.JScrollPane movie3Times;
+    public javax.swing.JRadioButton movie4RadioButton;
+    public javax.swing.JRadioButton movie4Time1;
+    public javax.swing.JRadioButton movie4Time2;
+    public javax.swing.JRadioButton movie4Time3;
+    public javax.swing.JRadioButton movie4Time4;
+    public javax.swing.JRadioButton movie4Time5;
+    public javax.swing.JRadioButton movie4Time6;
+    public javax.swing.JRadioButton movie4Time7;
+    public javax.swing.ButtonGroup movie4TimeButtons;
+    public javax.swing.JRadioButton movie5RadioButton;
+    public javax.swing.JRadioButton movie5Time1;
+    public javax.swing.JRadioButton movie5Time2;
+    public javax.swing.JRadioButton movie5Time3;
+    public javax.swing.JRadioButton movie5Time4;
+    public javax.swing.JRadioButton movie5Time5;
+    public javax.swing.JRadioButton movie5Time6;
+    public javax.swing.JRadioButton movie5Time7;
+    public javax.swing.ButtonGroup movie5TimeButtons;
     public javax.swing.ButtonGroup movieButtons;
     // End of variables declaration//GEN-END:variables
 }

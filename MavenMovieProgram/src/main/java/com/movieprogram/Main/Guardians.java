@@ -5,6 +5,11 @@
  */
 package com.movieprogram.Main;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  *
  * @author Robert
@@ -37,10 +42,14 @@ public class Guardians extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         backButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guardians_of_the_galaxy_vol_2_0 (1).jpg"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -129,6 +138,20 @@ public class Guardians extends javax.swing.JFrame {
         this.setVisible(false);
         new Mainpage().setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        if (Desktop.isDesktopSupported()) {
+		                Desktop d = Desktop.getDesktop();
+		                try {
+		                		URI url = new URI("https://www.youtube.com/watch?v=d96cjJhvlMA");
+		                        d.browse(url);
+		                } catch (IOException ex) {
+		                        // do nothing
+		                } catch (URISyntaxException ex) {
+							//do nothing
+						}
+          }
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,9 @@
 package com.movieprogram.Main;
 
 import java.awt.Component;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -153,7 +156,11 @@ public class TicketSelector extends javax.swing.JFrame {
         } else {
             this.setVisible(false);
             this.dispose();
-            new SeatSelector().setVisible(true);
+            try {
+                new SeatSelector().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(TicketSelector.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_okbuttonActionPerformed
 

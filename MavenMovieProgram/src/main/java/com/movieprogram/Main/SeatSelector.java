@@ -5,6 +5,14 @@ package com.movieprogram.Main;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,13 +22,13 @@ import javax.swing.JOptionPane;
 public class SeatSelector extends javax.swing.JFrame {
 
     /**
-     * Creates new form SeatSelector
-     * Declare Variables
+     * Creates new form SeatSelector Declare Variables
      */
     int seatTotal = TicketSelector.totalTickets;
     int seatCount = 0;
     String[] seats = new String[seatTotal];
     static String seatList = "";
+    
     boolean a1Clicked = false;
     boolean a2Clicked = false;
     boolean a3Clicked = false;
@@ -78,10 +86,68 @@ public class SeatSelector extends javax.swing.JFrame {
     boolean g7Clicked = false;
     boolean g8Clicked = false;
 
+    static int a1Available = 1;
+    static int a2Available = 1;
+    static int a3Available = 1;
+    static int a4Available = 1;
+    static int a5Available = 1;
+    static int a6Available = 1;
+    static int a7Available = 1;
+    static int a8Available = 1;
+    static int b1Available = 1;
+    static int b2Available = 1;
+    static int b3Available = 1;
+    static int b4Available = 1;
+    static int b5Available = 1;
+    static int b6Available = 1;
+    static int b7Available = 1;
+    static int b8Available = 1;
+    static int c1Available = 1;
+    static int c2Available = 1;
+    static int c3Available = 1;
+    static int c4Available = 1;
+    static int c5Available = 1;
+    static int c6Available = 1;
+    static int c7Available = 1;
+    static int c8Available = 1;
+    static int d1Available = 1;
+    static int d2Available = 1;
+    static int d3Available = 1;
+    static int d4Available = 1;
+    static int d5Available = 1;
+    static int d6Available = 1;
+    static int d7Available = 1;
+    static int d8Available = 1;
+    static int e1Available = 1;
+    static int e2Available = 1;
+    static int e3Available = 1;
+    static int e4Available = 1;
+    static int e5Available = 1;
+    static int e6Available = 1;
+    static int e7Available = 1;
+    static int e8Available = 1;
+    static int f1Available = 1;
+    static int f2Available = 1;
+    static int f3Available = 1;
+    static int f4Available = 1;
+    static int f5Available = 1;
+    static int f6Available = 1;
+    static int f7Available = 1;
+    static int f8Available = 1;
+    static int g1Available = 1;
+    static int g2Available = 1;
+    static int g3Available = 1;
+    static int g4Available = 1;
+    static int g5Available = 1;
+    static int g6Available = 1;
+    static int g7Available = 1;
+    static int g8Available = 1;
+    
     /*
     * Initialize Components
-    */
-    public SeatSelector() {
+     */
+    public SeatSelector() throws SQLException {
+        initTable();
         initComponents();
     }
 
@@ -224,6 +290,9 @@ public class SeatSelector extends javax.swing.JFrame {
         jLabel16.setText("8");
 
         a1Button.setText("A-1");
+        if (a1Available == 0) {
+            a1Button.setEnabled(false);
+        }
         a1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a1ButtonActionPerformed(evt);
@@ -231,6 +300,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         a2Button.setText("A-2");
+        if (a2Available == 0) {
+            a2Button.setEnabled(false);
+        }
         a2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a2ButtonActionPerformed(evt);
@@ -238,6 +310,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         a3Button.setText("A-3");
+        if (a3Available == 0) {
+            a3Button.setEnabled(false);
+        }
         a3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a3ButtonActionPerformed(evt);
@@ -245,6 +320,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         a4Button.setText("A-4");
+        if (a4Available == 0) {
+            a4Button.setEnabled(false);
+        }
         a4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a4ButtonActionPerformed(evt);
@@ -252,6 +330,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         a5Button.setText("A-5");
+        if (a5Available == 0) {
+            a5Button.setEnabled(false);
+        }
         a5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a5ButtonActionPerformed(evt);
@@ -259,6 +340,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         a6Button.setText("A-6");
+        if (a6Available == 0) {
+            a6Button.setEnabled(false);
+        }
         a6Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a6ButtonActionPerformed(evt);
@@ -266,6 +350,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         a7Button.setText("A-7");
+        if (a7Available == 0) {
+            a7Button.setEnabled(false);
+        }
         a7Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a7ButtonActionPerformed(evt);
@@ -273,6 +360,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         a8Button.setText("A-8");
+        if (a8Available == 0) {
+            a8Button.setEnabled(false);
+        }
         a8Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a8ButtonActionPerformed(evt);
@@ -280,6 +370,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         c1Button.setText("C-1");
+        if (c1Available == 0) {
+            c1Button.setEnabled(false);
+        }
         c1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c1ButtonActionPerformed(evt);
@@ -287,6 +380,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         d1Button.setText("D-1");
+        if (d1Available == 0) {
+            d1Button.setEnabled(false);
+        }
         d1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d1ButtonActionPerformed(evt);
@@ -294,6 +390,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         e1Button.setText("E-1");
+        if (e1Available == 0) {
+            e1Button.setEnabled(false);
+        }
         e1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e1ButtonActionPerformed(evt);
@@ -301,6 +400,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         f1Button.setText("F-1");
+        if (f1Available == 0) {
+            f1Button.setEnabled(false);
+        }
         f1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f1ButtonActionPerformed(evt);
@@ -308,6 +410,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         g1Button.setText("G-1");
+        if (g1Available == 0) {
+            g1Button.setEnabled(false);
+        }
         g1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g1ButtonActionPerformed(evt);
@@ -315,6 +420,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         c2Button.setText("C-2");
+        if (c2Available == 0) {
+            c2Button.setEnabled(false);
+        }
         c2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c2ButtonActionPerformed(evt);
@@ -322,6 +430,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         d2Button.setText("D-2");
+        if (d2Available == 0) {
+            d2Button.setEnabled(false);
+        }
         d2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d2ButtonActionPerformed(evt);
@@ -329,6 +440,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         e2Button.setText("E-2");
+        if (e2Available == 0) {
+            e2Button.setEnabled(false);
+        }
         e2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e2ButtonActionPerformed(evt);
@@ -336,6 +450,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         f2Button.setText("F-2");
+        if (f2Available == 0) {
+            f2Button.setEnabled(false);
+        }
         f2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f2ButtonActionPerformed(evt);
@@ -343,6 +460,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         g2Button.setText("G-2");
+        if (g2Available == 0) {
+            g2Button.setEnabled(false);
+        }
         g2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g2ButtonActionPerformed(evt);
@@ -350,6 +470,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         c3Button.setText("C-3");
+        if (c3Available == 0) {
+            c3Button.setEnabled(false);
+        }
         c3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c3ButtonActionPerformed(evt);
@@ -357,6 +480,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         d3Button.setText("D-3");
+        if (d3Available == 0) {
+            d3Button.setEnabled(false);
+        }
         d3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d3ButtonActionPerformed(evt);
@@ -364,6 +490,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         e3Button.setText("E-3");
+        if (e3Available == 0) {
+            e3Button.setEnabled(false);
+        }
         e3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e3ButtonActionPerformed(evt);
@@ -371,6 +500,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         f3Button.setText("F-3");
+        if (f3Available == 0) {
+            f3Button.setEnabled(false);
+        }
         f3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f3ButtonActionPerformed(evt);
@@ -378,6 +510,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         g3Button.setText("G-3");
+        if (g3Available == 0) {
+            g3Button.setEnabled(false);
+        }
         g3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g3ButtonActionPerformed(evt);
@@ -385,6 +520,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         b1Button.setText("B-1");
+        if (b1Available == 0) {
+            b1Button.setEnabled(false);
+        }
         b1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ButtonActionPerformed(evt);
@@ -392,6 +530,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         b2Button.setText("B-2");
+        if (b2Available == 0) {
+            b2Button.setEnabled(false);
+        }
         b2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ButtonActionPerformed(evt);
@@ -399,6 +540,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         b3Button.setText("B-3");
+        if (b3Available == 0) {
+            b3Button.setEnabled(false);
+        }
         b3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ButtonActionPerformed(evt);
@@ -406,6 +550,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         b4Button.setText("B-4");
+        if (b4Available == 0) {
+            b4Button.setEnabled(false);
+        }
         b4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ButtonActionPerformed(evt);
@@ -413,6 +560,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         c4Button.setText("C-4");
+        if (c4Available == 0) {
+            c4Button.setEnabled(false);
+        }
         c4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c4ButtonActionPerformed(evt);
@@ -420,6 +570,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         d4Button.setText("D-4");
+        if (d4Available == 0) {
+            d4Button.setEnabled(false);
+        }
         d4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d4ButtonActionPerformed(evt);
@@ -427,6 +580,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         e4Button.setText("E-4");
+        if (e4Available == 0) {
+            e4Button.setEnabled(false);
+        }
         e4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e4ButtonActionPerformed(evt);
@@ -434,6 +590,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         f4Button.setText("F-4");
+        if (f4Available == 0) {
+            f4Button.setEnabled(false);
+        }
         f4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f4ButtonActionPerformed(evt);
@@ -441,6 +600,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         g4Button.setText("G-4");
+        if (g4Available == 0) {
+            g4Button.setEnabled(false);
+        }
         g4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g4ButtonActionPerformed(evt);
@@ -448,6 +610,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         b5Button.setText("B-5");
+        if (b5Available == 0) {
+            b5Button.setEnabled(false);
+        }
         b5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ButtonActionPerformed(evt);
@@ -455,6 +620,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         c5Button.setText("C-5");
+        if (c5Available == 0) {
+            c5Button.setEnabled(false);
+        }
         c5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c5ButtonActionPerformed(evt);
@@ -462,6 +630,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         d5Button.setText("D-5");
+        if (d5Available == 0) {
+            d5Button.setEnabled(false);
+        }
         d5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d5ButtonActionPerformed(evt);
@@ -469,6 +640,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         e5Button.setText("E-5");
+        if (e5Available == 0) {
+            e5Button.setEnabled(false);
+        }
         e5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e5ButtonActionPerformed(evt);
@@ -476,6 +650,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         f5Button.setText("F-5");
+        if (f5Available == 0) {
+            f5Button.setEnabled(false);
+        }
         f5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f5ButtonActionPerformed(evt);
@@ -483,6 +660,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         g5Button.setText("G-5");
+        if (g5Available == 0) {
+            g5Button.setEnabled(false);
+        }
         g5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g5ButtonActionPerformed(evt);
@@ -490,6 +670,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         b6Button.setText("B-6");
+        if (b6Available == 0) {
+            b6Button.setEnabled(false);
+        }
         b6Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ButtonActionPerformed(evt);
@@ -497,6 +680,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         c6Button.setText("C-6");
+        if (c6Available == 0) {
+            c6Button.setEnabled(false);
+        }
         c6Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c6ButtonActionPerformed(evt);
@@ -504,6 +690,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         d6Button.setText("D-6");
+        if (d6Available == 0) {
+            d6Button.setEnabled(false);
+        }
         d6Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d6ButtonActionPerformed(evt);
@@ -511,6 +700,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         e6Button.setText("E-6");
+        if (e6Available == 0) {
+            e6Button.setEnabled(false);
+        }
         e6Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e6ButtonActionPerformed(evt);
@@ -518,6 +710,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         f6Button.setText("F-6");
+        if (f6Available == 0) {
+            f6Button.setEnabled(false);
+        }
         f6Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f6ButtonActionPerformed(evt);
@@ -525,6 +720,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         g6Button.setText("G-6");
+        if (g6Available == 0) {
+            g6Button.setEnabled(false);
+        }
         g6Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g6ButtonActionPerformed(evt);
@@ -532,6 +730,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         b7Button.setText("B-7");
+        if (b7Available == 0) {
+            b7Button.setEnabled(false);
+        }
         b7Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b7ButtonActionPerformed(evt);
@@ -539,6 +740,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         c7Button.setText("C-7");
+        if (c7Available == 0) {
+            c7Button.setEnabled(false);
+        }
         c7Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c7ButtonActionPerformed(evt);
@@ -546,6 +750,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         d7Button.setText("D-7");
+        if (d7Available == 0) {
+            d7Button.setEnabled(false);
+        }
         d7Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d7ButtonActionPerformed(evt);
@@ -553,6 +760,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         e7Button.setText("E-7");
+        if (e7Available == 0) {
+            e7Button.setEnabled(false);
+        }
         e7Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e7ButtonActionPerformed(evt);
@@ -560,6 +770,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         f7Button.setText("F-7");
+        if (f7Available == 0) {
+            f7Button.setEnabled(false);
+        }
         f7Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f7ButtonActionPerformed(evt);
@@ -567,6 +780,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         g7Button.setText("G-7");
+        if (g7Available == 0) {
+            g7Button.setEnabled(false);
+        }
         g7Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g7ButtonActionPerformed(evt);
@@ -574,6 +790,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         b8Button.setText("B-8");
+        if (b8Available == 0) {
+            b8Button.setEnabled(false);
+        }
         b8Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b8ButtonActionPerformed(evt);
@@ -581,6 +800,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         c8Button.setText("C-8");
+        if (c8Available == 0) {
+            c8Button.setEnabled(false);
+        }
         c8Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c8ButtonActionPerformed(evt);
@@ -588,6 +810,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         d8Button.setText("D-8");
+        if (d8Available == 0) {
+            d8Button.setEnabled(false);
+        }
         d8Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d8ButtonActionPerformed(evt);
@@ -595,6 +820,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         e8Button.setText("E-8");
+        if (e8Available == 0) {
+            e8Button.setEnabled(false);
+        }
         e8Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e8ButtonActionPerformed(evt);
@@ -602,6 +830,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         f8Button.setText("F-8");
+        if (f8Available == 0) {
+            f8Button.setEnabled(false);
+        }
         f8Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f8ButtonActionPerformed(evt);
@@ -609,6 +840,9 @@ public class SeatSelector extends javax.swing.JFrame {
         });
 
         g8Button.setText("G-8");
+        if (g8Available == 0) {
+            g8Button.setEnabled(false);
+        }
         g8Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g8ButtonActionPerformed(evt);
@@ -903,7 +1137,7 @@ public class SeatSelector extends javax.swing.JFrame {
     * Actions performed to select seats. Checks to see if seat is selected, if it isn't,
     * and the user has not selected enough seats it will select it. If it is selected
     * then it will deselect it.
-    */
+     */
     private void a1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ButtonActionPerformed
 
         if (a1Clicked == true) {
@@ -1699,7 +1933,7 @@ public class SeatSelector extends javax.swing.JFrame {
         /*
         * Checks to see if the correct amount of seats are chosen. If they are they are
         * added to the seats array. If not an error is displayed.
-        */
+         */
         if (seatCount == seatTotal) {
             seatSelection();
             seatsToString();
@@ -1710,11 +1944,11 @@ public class SeatSelector extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(frame, "You must select " + seatTotal + " seats.", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-    
+
     /*
     * When continue is selected and the correct number of seats were chosen
     * this adds all the selected seats to the seats array.
-    */
+     */
     private void seatSelection() {
         int count = 0;
         if (a1Clicked == true) {
@@ -1973,7 +2207,11 @@ public class SeatSelector extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SeatSelector().setVisible(true);
+                try {
+                    new SeatSelector().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(SeatSelector.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -2057,7 +2295,7 @@ public class SeatSelector extends javax.swing.JFrame {
 
     /*
     * Adds the seats to a string to be called later.
-    */
+     */
     private void seatsToString() {
         for (int i = 0; i < seats.length; i++) {
             if (i == 0 && seats.length == 1) {
@@ -2069,6 +2307,80 @@ public class SeatSelector extends javax.swing.JFrame {
             } else {
                 seatList = seatList + seats[i] + ", ";
             }
+        }
+    }
+
+    private void initTable() throws SQLException {
+        try {
+            String url = "jdbc:derby://localhost:1527/csc380";
+            Connection conn = DriverManager.getConnection(url, "csc", "380");
+            Statement st = conn.createStatement();
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM CSC.SOLDSEATS WHERE SHOWING = '" + Mainpage.primaryKey + "'");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                a1Available = rs.getInt("A1");
+                a2Available = rs.getInt("A2");
+                a3Available = rs.getInt("A3");
+                a4Available = rs.getInt("A4");
+                a5Available = rs.getInt("A5");
+                a6Available = rs.getInt("A6");
+                a7Available = rs.getInt("A7");
+                a8Available = rs.getInt("A8");
+                b1Available = rs.getInt("B1");
+                b2Available = rs.getInt("B2");
+                b3Available = rs.getInt("B3");
+                b4Available = rs.getInt("B4");
+                b5Available = rs.getInt("B5");
+                b6Available = rs.getInt("B6");
+                b7Available = rs.getInt("B7");
+                b8Available = rs.getInt("B8");
+                c1Available = rs.getInt("C1");
+                c2Available = rs.getInt("C2");
+                c3Available = rs.getInt("C3");
+                c4Available = rs.getInt("C4");
+                c5Available = rs.getInt("C5");
+                c6Available = rs.getInt("C6");
+                c7Available = rs.getInt("C7");
+                c8Available = rs.getInt("C8");
+                d1Available = rs.getInt("D1");
+                d2Available = rs.getInt("D2");
+                d3Available = rs.getInt("D3");
+                d4Available = rs.getInt("D4");
+                d5Available = rs.getInt("D5");
+                d6Available = rs.getInt("D6");
+                d7Available = rs.getInt("D7");
+                d8Available = rs.getInt("D8");
+                e1Available = rs.getInt("E1");
+                e2Available = rs.getInt("E2");
+                e3Available = rs.getInt("E3");
+                e4Available = rs.getInt("E4");
+                e5Available = rs.getInt("E5");
+                e6Available = rs.getInt("E6");
+                e7Available = rs.getInt("E7");
+                e8Available = rs.getInt("E8");
+                f1Available = rs.getInt("F1");
+                f2Available = rs.getInt("F2");
+                f3Available = rs.getInt("F3");
+                f4Available = rs.getInt("F4");
+                f5Available = rs.getInt("F5");
+                f6Available = rs.getInt("F6");
+                f7Available = rs.getInt("F7");
+                f8Available = rs.getInt("F8");
+                g1Available = rs.getInt("G1");
+                g2Available = rs.getInt("G2");
+                g3Available = rs.getInt("G3");
+                g4Available = rs.getInt("G4");
+                g5Available = rs.getInt("G5");
+                g6Available = rs.getInt("G6");
+                g7Available = rs.getInt("G7");
+                g8Available = rs.getInt("G8");
+            }
+            rs.close();
+            stmt.close();
+            st.close();
+        } catch (Exception e) {
+            System.err.println("Error");
+            System.err.println(e.getMessage());
         }
     }
 }

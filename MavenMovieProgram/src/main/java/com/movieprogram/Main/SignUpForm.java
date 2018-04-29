@@ -8,7 +8,7 @@ package com.movieprogram.Main;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,17 +31,18 @@ public class SignUpForm extends javax.swing.JFrame {
             //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
             String url = "jdbc:derby://localhost:1527/csc380";
             Connection conn = DriverManager.getConnection(url, "csc", "380");
-            //PreparedStatement ps = conn.prepareStatement("INSERT into test1 VALUES (?,?)");
+            Statement st = conn.createStatement();
 
             // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
             // Create the database, connect to it, then change the Connection conn line and String sql line to what you set
-            String sql = "INSERT INTO csc.movie VALUES (?,?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
+            String userEmail = emailTextField.getText();
+            String userPassword = passwordField.getText();
+            String userName = nameTextField.getText();
 
-            ps.setString(1, name);
-            ps.setString(2, email);
-            ps.executeUpdate();
-            ps.close();
+            st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+            conn.commit();
+            st.close();
+            conn.close();
         } catch (Exception e) {
             System.err.println("Error");
             System.err.println(e.getMessage());
@@ -241,55 +242,54 @@ public class SignUpForm extends javax.swing.JFrame {
     }//GEN-LAST:event_verifyPasswordFieldActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        try {
-            name = nameTextField.getText();
-            email = emailTextField.getText();
-            password = passwordField.getText();
-            String verifiedEmail = verifyEmailTextField.getText();
-            String verifiedPassword = verifyPasswordField.getText();
-            if ((name.isEmpty() || email.isEmpty() || verifiedEmail.isEmpty() || password.isEmpty() || verifiedPassword.isEmpty())) {
-                if (name.isEmpty()) {
-                    nameTextField.requestFocusInWindow();
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "You must enter a name.", "Warning", JOptionPane.WARNING_MESSAGE);
-                } else if (email.isEmpty()) {
-                    emailTextField.requestFocusInWindow();
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "Please enter an email.", "Warning", JOptionPane.WARNING_MESSAGE);
-                } else if (verifiedEmail.isEmpty()) {
-                    verifyEmailTextField.requestFocusInWindow();
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "Please confirm email.", "Warning", JOptionPane.WARNING_MESSAGE);
-                } else if (password.isEmpty()) {
-                    passwordField.requestFocusInWindow();
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "Please enter a password.", "Warning", JOptionPane.WARNING_MESSAGE);
-                } else if (verifiedPassword.isEmpty()) {
-                    verifyPasswordField.requestFocusInWindow();
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "Please verify password.", "Warning", JOptionPane.WARNING_MESSAGE);
-                }
-            } else if (!email.equals(verifiedEmail)) {
+        name = nameTextField.getText();
+        email = emailTextField.getText();
+        password = passwordField.getText();
+        String verifiedEmail = verifyEmailTextField.getText();
+        String verifiedPassword = verifyPasswordField.getText();
+        if ((name.isEmpty() || email.isEmpty() || verifiedEmail.isEmpty() || password.isEmpty() || verifiedPassword.isEmpty())) {
+            if (name.isEmpty()) {
+                nameTextField.requestFocusInWindow();
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "You must enter a name.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (email.isEmpty()) {
+                emailTextField.requestFocusInWindow();
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "Please enter an email.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (verifiedEmail.isEmpty()) {
                 verifyEmailTextField.requestFocusInWindow();
-                verifyEmailTextField.selectAll();
                 Component frame = null;
-                JOptionPane.showMessageDialog(frame, "Emails don't match.", "Warning", JOptionPane.WARNING_MESSAGE);
-            } else if (!password.equals(verifiedPassword)) {
+                JOptionPane.showMessageDialog(frame, "Please confirm email.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (password.isEmpty()) {
+                passwordField.requestFocusInWindow();
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame, "Please enter a password.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (verifiedPassword.isEmpty()) {
                 verifyPasswordField.requestFocusInWindow();
-                verifyPasswordField.selectAll();
                 Component frame = null;
-                JOptionPane.showMessageDialog(frame, "Passwords don't match.", "Warning", JOptionPane.WARNING_MESSAGE);
-            } else if (!termsCheckBox.isSelected()) {
-                Component frame = null;
-                JOptionPane.showMessageDialog(frame, "You must accept the Terms and Conditions.", "Warning", JOptionPane.WARNING_MESSAGE);
-            } else {
-                insert();
-                new Mainpage().setVisible(true);
-                this.setVisible(false);
+                JOptionPane.showMessageDialog(frame, "Please verify password.", "Warning", JOptionPane.WARNING_MESSAGE);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e + "");
-
+        } else if (!email.contains("@") || !email.contains(".")) {
+            emailTextField.requestFocusInWindow();
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "Email isn't valid.", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (!email.equals(verifiedEmail)) {
+            verifyEmailTextField.requestFocusInWindow();
+            verifyEmailTextField.selectAll();
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "Emails don't match.", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (!password.equals(verifiedPassword)) {
+            verifyPasswordField.requestFocusInWindow();
+            verifyPasswordField.selectAll();
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "Passwords don't match.", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (!termsCheckBox.isSelected()) {
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "You must accept the Terms and Conditions.", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            insert();
+            new Mainpage().setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_createButtonActionPerformed
 
@@ -311,16 +311,24 @@ public class SignUpForm extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

@@ -5,6 +5,11 @@
  */
 package com.movieprogram.Main;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  *
  * @author Robert
@@ -38,11 +43,16 @@ public class JohnWick extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/johnwicklarge.jpg"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         jTextArea1.setEditable(false);
@@ -67,13 +77,15 @@ public class JohnWick extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,6 +147,20 @@ public class JohnWick extends javax.swing.JFrame {
         this.setVisible(false);
         new Mainpage().setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        if (Desktop.isDesktopSupported()) {
+		                Desktop d = Desktop.getDesktop();
+		                try {
+		                		URI url = new URI("https://www.youtube.com/watch?v=2AUmvWm5ZDQ");
+		                        d.browse(url);
+		                } catch (IOException ex) {
+		                        // do nothing
+		                } catch (URISyntaxException ex) {
+							//do nothing
+						}
+          }
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments

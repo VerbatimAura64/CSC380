@@ -187,10 +187,10 @@ public class Login extends javax.swing.JFrame {
                 // You need Derby driver, and create a DB from Databases in Services tab.
                 // Change Connection conn and String url to whatever you put.
                 String url = "jdbc:derby://localhost:1527/csc380";
-                Connection conn = DriverManager.getConnection(url, "brandonx21", "1234");
+                Connection conn = DriverManager.getConnection(url, "csc", "380");
                 Statement st = conn.createStatement();
                 //String query = "SELECT * FROM brandonx21.test1 WHERE name = '" + userId + "'";
-                PreparedStatement stmt = conn.prepareStatement("SELECT * FROM brandonx21.test1 WHERE name = '" + userId + "'");
+                PreparedStatement stmt = conn.prepareStatement("SELECT * FROM CSC.USERACCOUNTS WHERE EMAIL = '" + userId + "'");
 
                 /*Currently, this will grab from the db a value the user inputed
                         if it cant be found, error will be thrown.

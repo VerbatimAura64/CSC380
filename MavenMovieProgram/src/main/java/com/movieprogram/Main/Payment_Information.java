@@ -6,6 +6,12 @@
 package com.movieprogram.Main;
 
 import java.awt.Component;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +29,62 @@ public class Payment_Information extends javax.swing.JFrame {
     double seniorTotal;
     double adultTotal;
     double childTotal;
+    int a1Available = 1;
+    int a2Available = 1;
+    int a3Available = 1;
+    int a4Available = 1;
+    int a5Available = 1;
+    int a6Available = 1;
+    int a7Available = 1;
+    int a8Available = 1;
+    int b1Available = 1;
+    int b2Available = 1;
+    int b3Available = 1;
+    int b4Available = 1;
+    int b5Available = 1;
+    int b6Available = 1;
+    int b7Available = 1;
+    int b8Available = 1;
+    int c1Available = 1;
+    int c2Available = 1;
+    int c3Available = 1;
+    int c4Available = 1;
+    int c5Available = 1;
+    int c6Available = 1;
+    int c7Available = 1;
+    int c8Available = 1;
+    int d1Available = 1;
+    int d2Available = 1;
+    int d3Available = 1;
+    int d4Available = 1;
+    int d5Available = 1;
+    int d6Available = 1;
+    int d7Available = 1;
+    int d8Available = 1;
+    int e1Available = 1;
+    int e2Available = 1;
+    int e3Available = 1;
+    int e4Available = 1;
+    int e5Available = 1;
+    int e6Available = 1;
+    int e7Available = 1;
+    int e8Available = 1;
+    int f1Available = 1;
+    int f2Available = 1;
+    int f3Available = 1;
+    int f4Available = 1;
+    int f5Available = 1;
+    int f6Available = 1;
+    int f7Available = 1;
+    int f8Available = 1;
+    int g1Available = 1;
+    int g2Available = 1;
+    int g3Available = 1;
+    int g4Available = 1;
+    int g5Available = 1;
+    int g6Available = 1;
+    int g7Available = 1;
+    int g8Available = 1;
 
     public Payment_Information() {
         initComponents();
@@ -73,6 +135,9 @@ public class Payment_Information extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        discountTextField = new javax.swing.JTextField();
         nameTextField = new javax.swing.JTextField();
         address1TextField = new javax.swing.JTextField();
         address2TextField = new javax.swing.JTextField();
@@ -234,6 +299,15 @@ public class Payment_Information extends javax.swing.JFrame {
         jLabel17.setText("x");
         jLabel17.setToolTipText("");
 
+        jButton3.setText("Update");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("Dicount Code");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -241,11 +315,6 @@ public class Payment_Information extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(totalTextField))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -254,6 +323,15 @@ public class Payment_Information extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(childTicketTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(adultTotalTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(childTotalTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(seniorTicketTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,29 +342,27 @@ public class Payment_Information extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(childTicketPrice))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(adultTotalTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(childTotalTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(seniorTicketTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(childTicketPrice))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addComponent(seniorTotalTextField))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seniorTicketPrice)))))
+                                .addComponent(seniorTicketPrice))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel19))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(discountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(totalTextField)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -324,9 +400,14 @@ public class Payment_Information extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(seniorTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(discountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(totalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
+                    .addComponent(jLabel18)
+                    .addComponent(jButton3))
                 .addContainerGap())
         );
 
@@ -336,23 +417,10 @@ public class Payment_Information extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(stateComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ccvNumberField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,7 +440,18 @@ public class Payment_Information extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))))
+                                .addComponent(jButton2))))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -419,7 +498,7 @@ public class Payment_Information extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(zipTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
@@ -449,7 +528,7 @@ public class Payment_Information extends javax.swing.JFrame {
         String address2 = address1TextField.getText();
         String state = (String) stateComboBox.getSelectedItem();
         String zip = zipTextField.getText();
-        
+
         if (creditCardNumber.length() == 0) {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "You must enter a valid credit card.", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -484,7 +563,302 @@ public class Payment_Information extends javax.swing.JFrame {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "Not a valid zip code.", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
-
+            try {
+                String url = "jdbc:derby://localhost:1527/csc380";
+                Connection conn = DriverManager.getConnection(url, "csc", "380");
+                Statement st = conn.createStatement();
+                if (SeatSelector.seatList.contains("A1")) {
+                    a1Available = 0;
+                } else {
+                    a1Available = SeatSelector.a1Available;
+                }
+                if (SeatSelector.seatList.contains("A2")) {
+                    a2Available = 0;
+                } else {
+                    a2Available = SeatSelector.a2Available;
+                }
+                if (SeatSelector.seatList.contains("A3")) {
+                    a3Available = 0;
+                } else {
+                    a3Available = SeatSelector.a3Available;
+                }
+                if (SeatSelector.seatList.contains("A4")) {
+                    a4Available = 0;
+                } else {
+                    a4Available = SeatSelector.a4Available;
+                }
+                if (SeatSelector.seatList.contains("A5")) {
+                    a5Available = 0;
+                } else {
+                    a5Available = SeatSelector.a5Available;
+                }
+                if (SeatSelector.seatList.contains("A6")) {
+                    a6Available = 0;
+                } else {
+                    a6Available = SeatSelector.a6Available;
+                }
+                if (SeatSelector.seatList.contains("A7")) {
+                    a7Available = 0;
+                } else {
+                    a7Available = SeatSelector.a7Available;
+                }
+                if (SeatSelector.seatList.contains("A8")) {
+                    a8Available = 0;
+                } else {
+                    a8Available = SeatSelector.a8Available;
+                }
+                if (SeatSelector.seatList.contains("B1")) {
+                    b1Available = 0;
+                } else {
+                    b1Available = SeatSelector.b1Available;
+                }
+                if (SeatSelector.seatList.contains("B2")) {
+                    b2Available = 0;
+                } else {
+                    b2Available = SeatSelector.b2Available;
+                }
+                if (SeatSelector.seatList.contains("B3")) {
+                    b3Available = 0;
+                } else {
+                    g3Available = SeatSelector.b3Available;
+                }
+                if (SeatSelector.seatList.contains("B4")) {
+                    b4Available = 0;
+                } else {
+                    b4Available = SeatSelector.b4Available;
+                }
+                if (SeatSelector.seatList.contains("B5")) {
+                    b5Available = 0;
+                } else {
+                    b5Available = SeatSelector.b5Available;
+                }
+                if (SeatSelector.seatList.contains("B6")) {
+                    b6Available = 0;
+                } else {
+                    b6Available = SeatSelector.b6Available;
+                }
+                if (SeatSelector.seatList.contains("B7")) {
+                    b7Available = 0;
+                } else {
+                    b7Available = SeatSelector.b7Available;
+                }
+                if (SeatSelector.seatList.contains("B8")) {
+                    b8Available = 0;
+                } else {
+                    b8Available = SeatSelector.b8Available;
+                }
+                if (SeatSelector.seatList.contains("C1")) {
+                    c1Available = 0;
+                } else {
+                    c1Available = SeatSelector.c1Available;
+                }
+                if (SeatSelector.seatList.contains("C2")) {
+                    c2Available = 0;
+                } else {
+                    c2Available = SeatSelector.c2Available;
+                }
+                if (SeatSelector.seatList.contains("C3")) {
+                    c3Available = 0;
+                } else {
+                    c3Available = SeatSelector.c3Available;
+                }
+                if (SeatSelector.seatList.contains("C4")) {
+                    c4Available = 0;
+                } else {
+                    c4Available = SeatSelector.c4Available;
+                }
+                if (SeatSelector.seatList.contains("C5")) {
+                    c5Available = 0;
+                } else {
+                    c5Available = SeatSelector.c5Available;
+                }
+                if (SeatSelector.seatList.contains("C6")) {
+                    c6Available = 0;
+                } else {
+                    c6Available = SeatSelector.c6Available;
+                }
+                if (SeatSelector.seatList.contains("C7")) {
+                    c7Available = 0;
+                } else {
+                    c7Available = SeatSelector.c7Available;
+                }
+                if (SeatSelector.seatList.contains("C8")) {
+                    c8Available = 0;
+                } else {
+                    c8Available = SeatSelector.c8Available;
+                }
+                if (SeatSelector.seatList.contains("D1")) {
+                    d1Available = 0;
+                } else {
+                    d1Available = SeatSelector.d1Available;
+                }
+                if (SeatSelector.seatList.contains("D2")) {
+                    d2Available = 0;
+                } else {
+                    d2Available = SeatSelector.d2Available;
+                }
+                if (SeatSelector.seatList.contains("D3")) {
+                    d3Available = 0;
+                } else {
+                    d3Available = SeatSelector.d3Available;
+                }
+                if (SeatSelector.seatList.contains("D4")) {
+                    d4Available = 0;
+                } else {
+                    d4Available = SeatSelector.d4Available;
+                }
+                if (SeatSelector.seatList.contains("D5")) {
+                    d5Available = 0;
+                } else {
+                    d5Available = SeatSelector.d5Available;
+                }
+                if (SeatSelector.seatList.contains("D6")) {
+                    d6Available = 0;
+                } else {
+                    d6Available = SeatSelector.d6Available;
+                }
+                if (SeatSelector.seatList.contains("D7")) {
+                    d7Available = 0;
+                } else {
+                    d7Available = SeatSelector.d7Available;
+                }
+                if (SeatSelector.seatList.contains("D8")) {
+                    d8Available = 0;
+                } else {
+                    d8Available = SeatSelector.d8Available;
+                }
+                if (SeatSelector.seatList.contains("E1")) {
+                    e1Available = 0;
+                } else {
+                    e1Available = SeatSelector.e1Available;
+                }
+                if (SeatSelector.seatList.contains("E2")) {
+                    e2Available = 0;
+                } else {
+                    e2Available = SeatSelector.e2Available;
+                }
+                if (SeatSelector.seatList.contains("E3")) {
+                    e3Available = 0;
+                } else {
+                    e3Available = SeatSelector.e3Available;
+                }
+                if (SeatSelector.seatList.contains("E4")) {
+                    e4Available = 0;
+                } else {
+                    e4Available = SeatSelector.e4Available;
+                }
+                if (SeatSelector.seatList.contains("E5")) {
+                    e5Available = 0;
+                } else {
+                    e5Available = SeatSelector.e5Available;
+                }
+                if (SeatSelector.seatList.contains("E6")) {
+                    e6Available = 0;
+                } else {
+                    e6Available = SeatSelector.e6Available;
+                }
+                if (SeatSelector.seatList.contains("E7")) {
+                    e7Available = 0;
+                } else {
+                    e7Available = SeatSelector.e7Available;
+                }
+                if (SeatSelector.seatList.contains("E8")) {
+                    e8Available = 0;
+                } else {
+                    e8Available = SeatSelector.e8Available;
+                }
+                if (SeatSelector.seatList.contains("F1")) {
+                    f1Available = 0;
+                } else {
+                    f1Available = SeatSelector.f1Available;
+                }
+                if (SeatSelector.seatList.contains("F2")) {
+                    f2Available = 0;
+                } else {
+                    f2Available = SeatSelector.f2Available;
+                }
+                if (SeatSelector.seatList.contains("F3")) {
+                    f3Available = 0;
+                } else {
+                    f3Available = SeatSelector.f3Available;
+                }
+                if (SeatSelector.seatList.contains("F4")) {
+                    f4Available = 0;
+                } else {
+                    f4Available = SeatSelector.f4Available;
+                }
+                if (SeatSelector.seatList.contains("F5")) {
+                    f5Available = 0;
+                } else {
+                    f5Available = SeatSelector.f5Available;
+                }
+                if (SeatSelector.seatList.contains("F6")) {
+                    f6Available = 0;
+                } else {
+                    f6Available = SeatSelector.f6Available;
+                }
+                if (SeatSelector.seatList.contains("F7")) {
+                    f7Available = 0;
+                } else {
+                    f7Available = SeatSelector.f7Available;
+                }
+                if (SeatSelector.seatList.contains("F8")) {
+                    f8Available = 0;
+                } else {
+                    f8Available = SeatSelector.f8Available;
+                }
+                if (SeatSelector.seatList.contains("G1")) {
+                    g1Available = 0;
+                } else {
+                    g1Available = SeatSelector.g1Available;
+                }
+                if (SeatSelector.seatList.contains("G2")) {
+                    g2Available = 0;
+                } else {
+                    g2Available = SeatSelector.g2Available;
+                }
+                if (SeatSelector.seatList.contains("G3")) {
+                    g3Available = 0;
+                } else {
+                    g3Available = SeatSelector.g3Available;
+                }
+                if (SeatSelector.seatList.contains("G4")) {
+                    g4Available = 0;
+                } else {
+                    g4Available = SeatSelector.g4Available;
+                }
+                if (SeatSelector.seatList.contains("G5")) {
+                    g5Available = 0;
+                } else {
+                    g5Available = SeatSelector.g5Available;
+                }
+                if (SeatSelector.seatList.contains("G6")) {
+                    g6Available = 0;
+                } else {
+                    g6Available = SeatSelector.g6Available;
+                }
+                if (SeatSelector.seatList.contains("G7")) {
+                    g7Available = 0;
+                } else {
+                    g7Available = SeatSelector.g7Available;
+                }
+                if (SeatSelector.seatList.contains("G8")) {
+                    g8Available = 0;
+                } else {
+                    g8Available = SeatSelector.g8Available;
+                }
+                try {
+                    st.executeUpdate("DELETE FROM CSC.SOLDSEATS WHERE SHOWING = '" + Mainpage.primaryKey + "'");
+                } catch (Exception e) {
+                    System.err.print("");
+                }
+                st.executeUpdate("INSERT INTO CSC.SOLDSEATS (SHOWING, A1, A2, A3, A4, A5, A6, A7, A8, B1, B2, B3, B4, B5, B6, B7, B8, C1, C2, C3, C4, C5, C6, C7, C8, D1, D2, D3, D4, D5, D6, D7, D8, E1, E2, E3, E4, E5, E6, E7, E8, F1, F2, F3, F4, F5, F6, F7, F8, G1, G2, G3, G4, G5, G6, G7, G8) VALUES('" + Mainpage.primaryKey + "'," + a1Available + "," + a2Available + "," + a3Available + "," + a4Available + "," + a5Available + "," + a6Available + "," + a7Available + "," + a8Available + "," + b1Available + "," + b2Available + "," + b3Available + "," + b4Available + "," + b5Available + "," + b6Available + "," + b7Available + "," + b8Available + "," + c1Available + "," + c2Available + "," + c3Available + "," + c4Available + "," + c5Available + "," + c6Available + "," + c7Available + "," + c8Available + "," + d1Available + "," + d2Available + "," + d3Available + "," + d4Available + "," + d5Available + "," + d6Available + "," + d7Available + "," + d8Available + "," + e1Available + "," + e2Available + "," + e3Available + "," + e4Available + "," + e5Available + "," + e6Available + "," + e7Available + "," + e8Available + "," + f1Available + "," + f2Available + "," + f3Available + "," + f4Available + "," + f5Available + "," + f6Available + "," + f7Available + "," + f8Available + "," + g1Available + "," + g2Available + "," + g3Available + "," + g4Available + "," + g5Available + "," + g6Available + "," + g7Available + "," + g8Available + ")");
+                conn.commit();
+                st.close();
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Payment_Information.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.setVisible(false);
             new ConfirmationPage().setVisible(true);
         }
@@ -492,7 +866,11 @@ public class Payment_Information extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-        new SeatSelector().setVisible(true);
+        try {
+            new SeatSelector().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Payment_Information.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void childTicketTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_childTicketTextFieldActionPerformed
@@ -502,6 +880,23 @@ public class Payment_Information extends javax.swing.JFrame {
     private void seniorTotalTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seniorTotalTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_seniorTotalTextFieldActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        double childTicketTotal = (Double) childTotalTextField.getValue();
+        double adultTicketTotal = (Double) adultTotalTextField.getValue();
+        double seniorTicketTotal = (Double) seniorTotalTextField.getValue();
+        double total = childTicketTotal + adultTicketTotal + seniorTicketTotal;
+        if (discountTextField.getText().equals("GIVEUSANA")) {
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "You got 100%! Congrats!", "You're Amazing", JOptionPane.OK_OPTION);
+            totalTextField.setValue(total * 0);
+        } else if (discountTextField.getText().equals("NEWBIE")) {
+            totalTextField.setValue(total * .9);
+        } else {
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "Not a valid discount code.", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -549,8 +944,10 @@ public class Payment_Information extends javax.swing.JFrame {
     public javax.swing.JTextField childTicketTextField;
     public javax.swing.JFormattedTextField childTotalTextField;
     public javax.swing.JTextField creditCardNumberField;
+    public javax.swing.JTextField discountTextField;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
@@ -561,6 +958,7 @@ public class Payment_Information extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel16;
     public javax.swing.JLabel jLabel17;
     public javax.swing.JLabel jLabel18;
+    public javax.swing.JLabel jLabel19;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;

@@ -470,6 +470,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a1ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (a1Available == 0) {&#xa;a1Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="a2Button">
       <Properties>
@@ -478,6 +481,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a2ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (a2Available == 0) {&#xa;a2Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="a3Button">
       <Properties>
@@ -486,6 +492,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a3ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (a3Available == 0) {&#xa;a3Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="a4Button">
       <Properties>
@@ -494,6 +503,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a4ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (a4Available == 0) {&#xa;a4Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="a5Button">
       <Properties>
@@ -502,6 +514,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a5ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (a5Available == 0) {&#xa;a5Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="a6Button">
       <Properties>
@@ -510,6 +525,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a6ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (a6Available == 0) {&#xa;a6Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="a7Button">
       <Properties>
@@ -518,6 +536,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a7ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (a7Available == 0) {&#xa;a7Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="a8Button">
       <Properties>
@@ -526,6 +547,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a8ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (a8Available == 0) {&#xa;a8Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="c1Button">
       <Properties>
@@ -534,6 +558,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c1ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (c1Available == 0) {&#xa;c1Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="d1Button">
       <Properties>
@@ -542,6 +569,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d1ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (d1Available == 0) {&#xa;d1Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="e1Button">
       <Properties>
@@ -550,6 +580,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e1ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (e1Available == 0) {&#xa;e1Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="f1Button">
       <Properties>
@@ -558,6 +591,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f1ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (f1Available == 0) {&#xa;f1Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="g1Button">
       <Properties>
@@ -566,6 +602,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g1ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (g1Available == 0) {&#xa;g1Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="c2Button">
       <Properties>
@@ -574,6 +613,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c2ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (c2Available == 0) {&#xa;c2Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="d2Button">
       <Properties>
@@ -582,6 +624,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d2ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (d2Available == 0) {&#xa;d2Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="e2Button">
       <Properties>
@@ -590,6 +635,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e2ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (e2Available == 0) {&#xa;e2Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="f2Button">
       <Properties>
@@ -598,6 +646,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f2ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (f2Available == 0) {&#xa;f2Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="g2Button">
       <Properties>
@@ -606,6 +657,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g2ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (g2Available == 0) {&#xa;g2Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="c3Button">
       <Properties>
@@ -614,6 +668,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c3ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (c3Available == 0) {&#xa;c3Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="d3Button">
       <Properties>
@@ -622,6 +679,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d3ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (d3Available == 0) {&#xa;d3Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="e3Button">
       <Properties>
@@ -630,6 +690,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e3ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (e3Available == 0) {&#xa;e3Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="f3Button">
       <Properties>
@@ -638,6 +701,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f3ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (f3Available == 0) {&#xa;f3Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="g3Button">
       <Properties>
@@ -646,6 +712,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g3ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (g3Available == 0) {&#xa;g3Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="b1Button">
       <Properties>
@@ -654,6 +723,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b1ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (b1Available == 0) {&#xa;b1Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="b2Button">
       <Properties>
@@ -662,6 +734,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b2ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (b2Available == 0) {&#xa;b2Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="b3Button">
       <Properties>
@@ -670,6 +745,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b3ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (b3Available == 0) {&#xa;b3Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="b4Button">
       <Properties>
@@ -678,6 +756,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b4ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (b4Available == 0) {&#xa;b4Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="c4Button">
       <Properties>
@@ -686,6 +767,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c4ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (c4Available == 0) {&#xa;c4Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="d4Button">
       <Properties>
@@ -694,6 +778,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d4ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (d4Available == 0) {&#xa;d4Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="e4Button">
       <Properties>
@@ -702,6 +789,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e4ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (e4Available == 0) {&#xa;e4Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="f4Button">
       <Properties>
@@ -710,6 +800,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f4ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (f4Available == 0) {&#xa;f4Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="g4Button">
       <Properties>
@@ -718,6 +811,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g4ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (g4Available == 0) {&#xa;g4Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="b5Button">
       <Properties>
@@ -726,6 +822,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b5ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (b5Available == 0) {&#xa;b5Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="c5Button">
       <Properties>
@@ -734,6 +833,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c5ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (c5Available == 0) {&#xa;c5Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="d5Button">
       <Properties>
@@ -742,6 +844,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d5ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (d5Available == 0) {&#xa;d5Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="e5Button">
       <Properties>
@@ -750,6 +855,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e5ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (e5Available == 0) {&#xa;e5Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="f5Button">
       <Properties>
@@ -758,6 +866,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f5ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (f5Available == 0) {&#xa;f5Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="g5Button">
       <Properties>
@@ -766,6 +877,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g5ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (g5Available == 0) {&#xa;g5Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="b6Button">
       <Properties>
@@ -774,6 +888,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b6ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (b6Available == 0) {&#xa;b6Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="c6Button">
       <Properties>
@@ -782,6 +899,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c6ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (c6Available == 0) {&#xa;c6Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="d6Button">
       <Properties>
@@ -790,6 +910,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d6ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (d6Available == 0) {&#xa;d6Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="e6Button">
       <Properties>
@@ -798,6 +921,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e6ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (e6Available == 0) {&#xa;e6Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="f6Button">
       <Properties>
@@ -806,6 +932,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f6ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (f6Available == 0) {&#xa;f6Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="g6Button">
       <Properties>
@@ -814,6 +943,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g6ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (g6Available == 0) {&#xa;g6Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="b7Button">
       <Properties>
@@ -822,6 +954,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b7ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (b7Available == 0) {&#xa;b7Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="c7Button">
       <Properties>
@@ -830,6 +965,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c7ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (c7Available == 0) {&#xa;c7Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="d7Button">
       <Properties>
@@ -838,6 +976,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d7ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (d7Available == 0) {&#xa;d7Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="e7Button">
       <Properties>
@@ -846,6 +987,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e7ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (e7Available == 0) {&#xa;e7Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="f7Button">
       <Properties>
@@ -854,6 +998,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f7ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (f7Available == 0) {&#xa;f7Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="g7Button">
       <Properties>
@@ -862,6 +1009,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g7ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (g7Available == 0) {&#xa;g7Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="b8Button">
       <Properties>
@@ -870,6 +1020,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b8ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (b8Available == 0) {&#xa;b8Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="c8Button">
       <Properties>
@@ -878,6 +1031,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c8ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (c8Available == 0) {&#xa;c8Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="d8Button">
       <Properties>
@@ -886,6 +1042,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d8ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (d8Available == 0) {&#xa;d8Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="e8Button">
       <Properties>
@@ -894,6 +1053,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e8ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (e8Available == 0) {&#xa;e8Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="f8Button">
       <Properties>
@@ -902,6 +1064,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f8ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (f8Available == 0) {&#xa;f8Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="g8Button">
       <Properties>
@@ -910,6 +1075,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g8ButtonActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if (g8Available == 0) {&#xa;g8Button.setEnabled(false);&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>

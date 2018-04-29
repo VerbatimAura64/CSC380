@@ -2,16 +2,11 @@
 package com.movieprogram.Main;
 
 import java.awt.AWTException;
-import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileWriter;
-import javax.imageio.ImageIO;
 import java.io.IOException;
 
 /**
