@@ -28,9 +28,9 @@ public class Login extends javax.swing.JFrame {
         initComponents();
     }
 
-    String userId;
+    public String userId;
     String password;
-    String userName;
+    static String userName;
     String userPassword;
 
     /**
@@ -188,13 +188,13 @@ public class Login extends javax.swing.JFrame {
                 // You need Derby driver, and create a DB from Databases in Services tab.
                 // Change Connection conn and String url to whatever you put.
                 //
-                String url = "jdbc:derby://localhost:1527/FinalDB";
+                String url = "jdbc:derby://localhost:1527/zeemovies";
                // Connection conn = DriverManager.getConnection(url, "csc", "380");
-                Connection conn = DriverManager.getConnection(url, "verb", "verb");
+                Connection conn = DriverManager.getConnection(url, "zee", "movies");
                 Statement st = conn.createStatement();
                 //String query = "SELECT * FROM brandonx21.test1 WHERE name = '" + userId + "'";
                // PreparedStatement stmt = conn.prepareStatement("SELECT * FROM CSC.USERACCOUNTS WHERE EMAIL = '" + userId + "'");
-PreparedStatement stmt = conn.prepareStatement("SELECT * FROM VERB.USERACCOUNTS WHERE EMAIL = '" + userId + "'");
+PreparedStatement stmt = conn.prepareStatement("SELECT * FROM ZEE.USERACCOUNTS WHERE EMAIL = '" + userId + "'");
                 /*Currently, this will grab from the db a value the user inputed
                         if it cant be found, error will be thrown.
                         Not tested against duplicates of same name. Might add that later

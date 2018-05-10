@@ -896,6 +896,8 @@ public class Payment_Information extends javax.swing.JFrame {
             totalTextField.setValue(total * 0);
         } else if (discountTextField.getText().equals("NEWBIE")) {
             totalTextField.setValue(total * .9);
+        } else if (discountTextField.getText().equals("25OFF")) {
+            totalTextField.setValue(total * .75);
         } else {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "Not a valid discount code.", "Warning", JOptionPane.WARNING_MESSAGE);

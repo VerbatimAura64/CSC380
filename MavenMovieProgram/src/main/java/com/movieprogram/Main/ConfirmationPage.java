@@ -6,7 +6,15 @@
 package com.movieprogram.Main;
 
 import java.awt.Component;
+import java.util.Properties;
 import java.util.Random;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
 /**
@@ -180,8 +188,10 @@ public class ConfirmationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmFieldActionPerformed
 
     private void pickAnotherMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickAnotherMovieButtonActionPerformed
+        
         this.setVisible(false);
         if (Login.loggedIn == 1 ) {
+            sendLoggedInConfirmationEmail();
             new Mainpage().setVisible(true);
         } else {
             Component frame = null;
@@ -197,6 +207,9 @@ public class ConfirmationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_pickAnotherMovieButtonActionPerformed
 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
+        if (Login.loggedIn == 1 ) {
+            sendLoggedInConfirmationEmail();
+        }
         this.setVisible(false);
         new Login().setVisible(true);
     }//GEN-LAST:event_quitButtonActionPerformed
@@ -208,7 +221,7 @@ public class ConfirmationPage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -221,15 +234,11 @@ public class ConfirmationPage extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConfirmationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConfirmationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConfirmationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ConfirmationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
@@ -255,4 +264,80 @@ public class ConfirmationPage extends javax.swing.JFrame {
     public javax.swing.JTextField seatsField;
     public javax.swing.JTextField timeField;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+//    private void sendConfirmationEmail() {
+//        String host = "smtp.gmail.com";
+//        String sender = "ZeeMoviesProgram@gmail.com";
+//        String password = "I_Like_Movies";
+//        String recipient = SignUpForm.email;
+//        
+//        Properties props = new Properties();
+//        props.put("mail.smtp.auth", true);
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.smtp.host", host);
+//        props.put("mail.smtp.port", "587");
+//        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+//            protected PasswordAuthentication getPasswordAuthentication() {
+//                return new PasswordAuthentication(sender,password);
+//            }
+//        });
+//        
+//        
+//        try {
+//            MimeMessage message = new MimeMessage(session);
+//            message.setFrom(new InternetAddress(sender));
+//            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+//            message.setSubject("Your movie confirmation:");
+//            message.setText("Thank you for your purchase!"
+//                            + "\n Please save this email as proof of purchase."
+//                            + "\n Your movie: " + Mainpage.movie
+//                            + "\n Your Date and Time: " + Mainpage.date + " " + Mainpage.time
+//                            + "\n Your seats: " + SeatSelector.seatList 
+//                            + "\n Your confirmtation number: " + confirmationNumber);
+//            
+//            Transport.send(message);
+//            System.out.println("Email succesfully sent!");
+//        } catch (MessagingException mex) {
+//            mex.printStackTrace();
+//        }
+//    }
+
+    private void sendLoggedInConfirmationEmail() {
+        String host = "smtp.gmail.com";
+        String sender = "ZeeMoviesProgram@gmail.com";
+        String password = "I_Like_Movies";
+        String recipient = Login.userName;
+        
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", true);
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", "587");
+        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(sender,password);
+            }
+        });
+        
+        
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(sender));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+            message.setSubject("Your movie confirmation:");
+            message.setText("Thank you for your purchase!"
+                            + "\n Please save this email as proof of purchase."
+                            + "\n Your movie: " + Mainpage.movie
+                            + "\n Your Date and Time: " + Mainpage.date + " " + Mainpage.time
+                            + "\n Your seats: " + SeatSelector.seatList 
+                            + "\n Your confirmtation number: " + confirmationNumber);
+            
+            Transport.send(message);
+            System.out.println("Email succesfully sent!");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+        }
+    }
 }

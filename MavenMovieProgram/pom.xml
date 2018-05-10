@@ -18,12 +18,6 @@
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.14.1.0</version>
-            <scope>test</scope>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 <dependency>
@@ -31,18 +25,24 @@
     <artifactId>mysql-connector-java</artifactId>
     <version>5.1.6</version>
 </dependency>
-
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.6.1</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>1.4.5</version>
             <type>jar</type>
+			<scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.14.1.0</version>
+			<scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.1</version>
+			<scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
@@ -51,7 +51,24 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
-                <configuration>
+                <dependencies>
+					<dependency>
+						<groupId>org.apache.derby</groupId>
+						<artifactId>derbyclient</artifactId>
+						<version>10.10.1.1</version>
+						<scope>system</scope>
+						<systemPath>C:\Users\Will\Downloads\db-derby-10.14.1.0-bin\db-derby-10.14.1.0-bin\lib\derbyclient.jar</systemPath>
+					</dependency>
+					<dependency>
+						<groupId>javax.mail</groupId>
+						<artifactId>mail</artifactId>
+						<version>1.4.5</version>
+						<type>jar</type>
+						<scope>system</scope>
+						<systemPath>C:\Users\Will\Downloads\javax.mail.jar</systemPath>
+					</dependency>
+				</dependencies>
+				<configuration>
                     <archive>
                         <manifest>
                             <mainClass>com.movieprogram.Main.Main</mainClass>

@@ -31,14 +31,14 @@ public class SignUpForm extends javax.swing.JFrame {
         initComponents();
     }
 
-    String name, email, password;
+    public static String name, email, password;
 
     protected void insert() {
         try {
             //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
-            String url = "jdbc:derby://localhost:1527/FinalDB";
+            String url = "jdbc:derby://localhost:1527/zeemovies";
             // Connection conn = DriverManager.getConnection(url, "csc", "380");
-            try (Connection conn = DriverManager.getConnection(url, "verb", "verb"); // Connection conn = DriverManager.getConnection(url, "csc", "380");
+            try (Connection conn = DriverManager.getConnection(url, "zee", "movies"); // Connection conn = DriverManager.getConnection(url, "csc", "380");
                     Statement st = conn.createStatement()) {
                 // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
                 // Create the database, connect to it, then change the Connection conn line and String sql line to what you set
@@ -48,7 +48,7 @@ public class SignUpForm extends javax.swing.JFrame {
                 try {
                     //st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
                     
-                    st.executeUpdate("INSERT INTO VERB.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                    st.executeUpdate("INSERT INTO ZEE.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
                 } catch (Exception e) {
                     Component frame = null;
                     JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -302,37 +302,37 @@ public class SignUpForm extends javax.swing.JFrame {
         } else {
             try {
                 //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
-                String url = "jdbc:derby://localhost:1527/FinalDB";
-                Class.forName("com.mysql.jdbc.driver");
-                Connection conn = DriverManager.getConnection(url, "verb", "verb");
+                String url = "jdbc:derby://localhost:1527/zeemovies";
+                //Class.forName("org.apache.derby.jdbc.ClientDriver");
                 //Connection conn = DriverManager.getConnection(url, "csc", "380");
-                Statement st = conn.createStatement();
-
-                // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
-                // Create the database, connect to it, then change the Connection conn line and String sql line to what you set
-                String userEmail = emailTextField.getText();
-                String userPassword = passwordField.getText();
-                String userName = nameTextField.getText();
-                try {
-                                        //st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
-
-                    st.executeUpdate("INSERT INTO VERB.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
-                } catch (Exception e) {
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
-                    userFound = 1;
+                try (Connection conn = DriverManager.getConnection(url, "zee", "movies"); //Connection conn = DriverManager.getConnection(url, "csc", "380");
+                        Statement st = conn.createStatement()) {
+                    // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
+                    // Create the database, connect to it, then change the Connection conn line and String sql line to what you set
+                    String userEmail = emailTextField.getText();
+                    String userPassword = passwordField.getText();
+                    String userName = nameTextField.getText();
+                    try {
+                        //st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                        
+                        st.executeUpdate("INSERT INTO ZEE.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                    } catch (Exception e) {
+                        Component frame = null;
+                        JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
+                        userFound = 1;
+                    }
+                    conn.commit();
                 }
-                conn.commit();
-                st.close();
-                conn.close();
-                sendingEmail();
-            } catch (Exception e) {
+                
+            } catch (SQLException | HeadlessException e) {
                 //System.err.println("Error");
-                //System.err.println(e.getMessage());
+                System.err.println(e.getMessage());
                 sendingEmail();
             }
             if (userFound != 1) {
+                sendingEmail();
                 Login.loggedIn = 1;
+                Login.userName = email;
                 new Mainpage().setVisible(true);
                 this.setVisible(false);
             }
@@ -346,7 +346,7 @@ public class SignUpForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -360,22 +360,13 @@ public class SignUpForm extends javax.swing.JFrame {
 
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SignUpForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUpForm.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUpForm.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignUpForm.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
@@ -409,7 +400,11 @@ public class SignUpForm extends javax.swing.JFrame {
             message.setFrom(new InternetAddress(sender));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
             message.setSubject("Welcome to Zee Movies!");
-            message.setText("Thanks for joining Zee Movies!");
+            message.setText("Thanks for joining Zee Movies!"
+                    + "\n Use promo codes: \n \n NEWBIE  \n 25OFF \n GIVEUSANA \n \n"
+                    + "on your next purchase for a special discount!"
+                    + "\n If you have any comments, questions, or concerns, please feel free to email us at"
+                    + "\n \n zeemoviesprogram@gmail.com");
             
             Transport.send(message);
             System.out.println("Email succesfully sent!");
