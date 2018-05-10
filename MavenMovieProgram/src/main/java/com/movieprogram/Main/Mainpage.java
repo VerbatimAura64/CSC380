@@ -160,6 +160,7 @@ public class Mainpage extends javax.swing.JFrame {
 
         johnWickPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/johnwick.jpg"))); // NOI18N
         johnWickPicture.setToolTipText("John Wick");
+        johnWickPicture.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         johnWickPicture.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 johnWickPictureMouseClicked(evt);
@@ -181,6 +182,7 @@ public class Mainpage extends javax.swing.JFrame {
         goTGPicture.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         goTGPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guardians1.jpg"))); // NOI18N
         goTGPicture.setToolTipText("Guardians of the Galaxy");
+        goTGPicture.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         goTGPicture.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 goTGPictureMouseClicked(evt);
@@ -193,6 +195,7 @@ public class Mainpage extends javax.swing.JFrame {
 
         dunkirkPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dunkirk.jpg"))); // NOI18N
         dunkirkPicture.setToolTipText("Dunkirk");
+        dunkirkPicture.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dunkirkPicture.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dunkirkPictureMouseClicked(evt);
@@ -206,6 +209,7 @@ public class Mainpage extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ThreatLVLMidnight.jpg"))); // NOI18N
         jLabel8.setToolTipText("Threat Level Midnight");
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
@@ -218,6 +222,7 @@ public class Mainpage extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Lethal weapon 6.png"))); // NOI18N
         jLabel10.setToolTipText("Lethal Weapon 6");
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.movieprogram.Main.LoginTest
+Test set: com.movieprogram.Main.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.209 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.258 sec

@@ -6,10 +6,18 @@
 package com.movieprogram.Main;
 
 import java.awt.Component;
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.mail.Session;
+import javax.mail.Transport;
+
 
 
 public class SignUpForm extends javax.swing.JFrame {
@@ -28,28 +36,25 @@ public class SignUpForm extends javax.swing.JFrame {
     protected void insert() {
         try {
             //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
-            String url = "jdbc:derby://localhost:1527/csc380";
-            Connection conn = DriverManager.getConnection(url, "picklerick", "junkrat");
-           // Connection conn = DriverManager.getConnection(url, "csc", "380");
-            Statement st = conn.createStatement();
-
-            // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
-            // Create the database, connect to it, then change the Connection conn line and String sql line to what you set
-            String userEmail = emailTextField.getText();
-            String userPassword = passwordField.getText();
-            String userName = nameTextField.getText();
-            try {
-                                //st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
-
-                st.executeUpdate("INSERT INTO PICKLERICK.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
-            } catch (Exception e) {
-                Component frame = null;
-                JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
-            }
-            conn.commit();
-            st.close();
-            conn.close();
-        } catch (Exception e) {
+            String url = "jdbc:derby://localhost:1527/FinalDB";
+            // Connection conn = DriverManager.getConnection(url, "csc", "380");
+            try (Connection conn = DriverManager.getConnection(url, "verb", "verb"); // Connection conn = DriverManager.getConnection(url, "csc", "380");
+                    Statement st = conn.createStatement()) {
+                // You need Derby driver, go to Services -> Databases -> jdbc:derby://blahblah
+                // Create the database, connect to it, then change the Connection conn line and String sql line to what you set
+                String userEmail = emailTextField.getText();
+                String userPassword = passwordField.getText();
+                String userName = nameTextField.getText();
+                try {
+                    //st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                    
+                    st.executeUpdate("INSERT INTO VERB.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                } catch (Exception e) {
+                    Component frame = null;
+                    JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
+                conn.commit();
+            }        } catch (SQLException | HeadlessException e) {
             System.err.println("Error");
             System.err.println(e.getMessage());
         }
@@ -297,8 +302,9 @@ public class SignUpForm extends javax.swing.JFrame {
         } else {
             try {
                 //conn = DriverManager.getConnection("jdbc:derby://localhost:1527/csc380"); 
-                String url = "jdbc:derby://localhost:1527/csc380";
-                Connection conn = DriverManager.getConnection(url, "picklerick", "junkrat");
+                String url = "jdbc:derby://localhost:1527/FinalDB";
+                Class.forName("com.mysql.jdbc.driver");
+                Connection conn = DriverManager.getConnection(url, "verb", "verb");
                 //Connection conn = DriverManager.getConnection(url, "csc", "380");
                 Statement st = conn.createStatement();
 
@@ -310,7 +316,7 @@ public class SignUpForm extends javax.swing.JFrame {
                 try {
                                         //st.executeUpdate("INSERT INTO CSC.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
 
-                    st.executeUpdate("INSERT INTO PICKLERICK.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
+                    st.executeUpdate("INSERT INTO VERB.USERACCOUNTS (EMAIL, PASSWORD, NAME) VALUES ('" + userEmail + "','" + userPassword + "','" + userName + "')");
                 } catch (Exception e) {
                     Component frame = null;
                     JOptionPane.showMessageDialog(frame, "User already exists", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -319,9 +325,11 @@ public class SignUpForm extends javax.swing.JFrame {
                 conn.commit();
                 st.close();
                 conn.close();
+                sendingEmail();
             } catch (Exception e) {
-                System.err.println("Error");
-                System.err.println(e.getMessage());
+                //System.err.println("Error");
+                //System.err.println(e.getMessage());
+                sendingEmail();
             }
             if (userFound != 1) {
                 Login.loggedIn = 1;
@@ -378,11 +386,40 @@ public class SignUpForm extends javax.swing.JFrame {
         });
     }
     
-    void sendEmail(){
+    void sendingEmail(){
+        String host = "smtp.gmail.com";
+        String sender = "ZeeMoviesProgram@gmail.com";
+        String password = "I_Like_Movies";
+        String recipient = email;
         
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", true);
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", "587");
+        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(sender,password);
+            }
+        });
+        
+        
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(sender));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+            message.setSubject("Welcome to Zee Movies!");
+            message.setText("Thanks for joining Zee Movies!");
+            
+            Transport.send(message);
+            System.out.println("Email succesfully sent!");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+        }
     }
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify   
+    
     public javax.swing.JButton cancelButton;
     public javax.swing.JButton createButton;
     public javax.swing.JComboBox<String> dayDOB;

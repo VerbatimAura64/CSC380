@@ -211,6 +211,9 @@
                   <Image iconType="3" name="/johnwick.jpg"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="John Wick"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="johnWickPictureMouseClicked"/>
@@ -262,6 +265,9 @@
                   <Image iconType="3" name="/guardians1.jpg"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Guardians of the Galaxy"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="goTGPictureMouseClicked"/>
@@ -288,6 +294,9 @@
                   <Image iconType="3" name="/dunkirk.jpg"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Dunkirk"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dunkirkPictureMouseClicked"/>
@@ -317,6 +326,9 @@
                   <Image iconType="3" name="/ThreatLVLMidnight.jpg"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Threat Level Midnight"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel8MouseClicked"/>
@@ -337,6 +349,9 @@
                   <Image iconType="3" name="/Lethal weapon 6.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Lethal Weapon 6"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel10MouseClicked"/>

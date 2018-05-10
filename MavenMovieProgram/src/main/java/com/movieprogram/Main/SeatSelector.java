@@ -147,6 +147,62 @@ public class SeatSelector extends javax.swing.JFrame {
     * Initialize Components
      */
     public SeatSelector() throws SQLException {
+        a1Available=1;
+        a2Available=1;
+        a3Available=1;
+        a4Available=1;
+        a5Available=1;
+        a6Available=1;
+        a7Available=1;
+        a8Available=1;
+        b1Available=1;
+        b2Available=1;
+        b3Available=1;
+        b4Available=1;
+        b5Available=1;
+        b6Available=1;
+        b7Available=1;
+        b8Available=1;
+        c1Available=1;
+        c2Available=1;
+        c3Available=1;
+        c4Available=1;
+        c5Available=1;
+        c6Available=1;
+        c7Available=1;
+        c8Available=1;
+        d1Available=1;
+        d2Available=1;
+        d3Available=1;
+        d4Available=1;
+        d5Available=1;
+        d6Available=1;
+        d7Available=1;
+        d8Available=1;
+        e1Available=1;
+        e2Available=1;
+        e3Available=1;
+        e4Available=1;
+        e5Available=1;
+        e6Available=1;
+        e7Available=1;
+        e8Available=1;
+        f1Available=1;
+        f2Available=1;
+        f3Available=1;
+        f4Available=1;
+        f5Available=1;
+        f6Available=1;
+        f7Available=1;
+        f8Available=1;
+        g1Available=1;
+        g2Available=1;
+        g3Available=1;
+        g4Available=1;
+        g5Available=1;
+        g6Available=1;
+        g7Available=1;
+        g8Available=1;
         initTable();
         initComponents();
     }
@@ -2312,12 +2368,12 @@ public class SeatSelector extends javax.swing.JFrame {
 
     private void initTable() throws SQLException {
         try {
-            String url = "jdbc:derby://localhost:1527/csc380";
+            String url = "jdbc:derby://localhost:1527/FinalDB";
             
-            Connection conn = DriverManager.getConnection(url, "picklerick", "junkrat");
+            Connection conn = DriverManager.getConnection(url, "verb", "verb");
             //Connection conn = DriverManager.getConnection(url, "csc", "380");
             Statement st = conn.createStatement();
-                        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM PICKLERICK.SOLDSEATS WHERE SHOWING = '" + Mainpage.primaryKey + "'");
+                        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM VERB.SOLDSEATS WHERE SHOWING = '" + Mainpage.primaryKey + "'");
 
             //PreparedStatement stmt = conn.prepareStatement("SELECT * FROM CSC.SOLDSEATS WHERE SHOWING = '" + Mainpage.primaryKey + "'");
             ResultSet rs = stmt.executeQuery();
